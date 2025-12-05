@@ -7,6 +7,8 @@ import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material";
 import CardsSection from "./routes/homeRoute/CardsSection";
+import banner from "./routes/homeRoute/assets/bannerImage.png";
+import { Divider } from "@mui/material";
 function App() {
   const ButtonStyled = styled(Button)({
     backgroundColor: "#b2c535",
@@ -127,6 +129,103 @@ function App() {
         </Box>
       </Container>
       <CardsSection></CardsSection>
+      <Container
+        disableGutters
+        maxWidth={false}
+        sx={{
+          minHeight: "10vh",
+          width: "100%",
+          overflow: "hidden",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.62)),url(${banner})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 2,
+            padding: "2vmax",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "2vmax",
+            }}
+          >
+            Mais de 120 grandes clientes
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "2vmax",
+              color: "#88c280ff",
+              fontWeight: "bold",
+            }}
+          >
+            Mais de 700 cidades atendidas
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "2vmax",
+              color: "#76a86f",
+              fontWeight: "bold",
+            }}
+          >
+            Mais de 13 milhões de pessoas impactadas diariamente
+          </Typography>
+        </Box>
+      </Container>
+      <Container
+        disableGutters
+        maxWidth={false}
+        sx={{
+          minHeight: "20vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "black",
+          padding: "2rem",
+          gap: 2,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: "3vmax",
+              fontWeight: "700",
+            }}
+          >
+            Cases
+          </Typography>
+          <Divider sx={{ borderBottom: "6px solid #76A86F", width: "30%" }} />
+        </Box>
+      </Container>
+      <Container
+        disableGutters
+        maxWidth={false}
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+        }}
+      >
+        {}
+      </Container>
     </>
   );
 }

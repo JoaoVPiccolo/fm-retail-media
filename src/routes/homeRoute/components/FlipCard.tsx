@@ -9,13 +9,13 @@ import {
   Link,
 } from "@mui/material";
 import { motion } from "framer-motion";
-
 interface FlipCardProps {
   title: string;
   links: string[];
+  image: string;
 }
 
-export default function FlipCard({ title, links }: FlipCardProps) {
+export default function FlipCard({ title, links, image }: FlipCardProps) {
   const [hover, setHover] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ export default function FlipCard({ title, links }: FlipCardProps) {
       sx={{
         perspective: 1000,
         width: 300,
-        height: 400,
+        height: 460,
         cursor: "pointer",
         borderRadius: "1rem",
         overflow: "hidden",
@@ -51,28 +51,26 @@ export default function FlipCard({ title, links }: FlipCardProps) {
             height: "100%",
             backfaceVisibility: "hidden",
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            justifyContent: "start",
+            alignItems: "end",
             borderRadius: "1rem",
-            bgcolor: "#76A86F",
+            bgcolor: "",
             color: "white",
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.62)), url(${image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <CardContent>
             <Typography
               variant="h5"
-              textAlign="center"
-              fontWeight="bold"
+              textAlign="start"
+              fontWeight={700}
+              fontSize="2rem"
               gutterBottom
+              color="#9cca95ff"
             >
               {title}
-            </Typography>
-            <Typography
-              variant="body2"
-              textAlign="center"
-              color="text.secondary"
-            >
-              Hover to flip
             </Typography>
           </CardContent>
         </Card>
