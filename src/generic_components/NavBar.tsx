@@ -7,7 +7,7 @@ import styled from "@emotion/styled";
 import logo from "./assets/icons/Logo_fundo escuro.png";
 import logoSimbulo from "./assets/icons/Simbolo_fundo escuro.png";
 function NavBar() {
-  const ButtonNav = styled(NavLink)({
+  const ButtonNav = styled(NavLink)(() => ({
     color: "white",
     fontFamily: "poppins, sans-serif",
     textDecoration: "none",
@@ -16,7 +16,10 @@ function NavBar() {
     ":hover": {
       color: "#98FF8E",
     },
-  });
+    "&.active": {
+      color: "#98FF8E",
+    },
+  }));
   return (
     <>
       <Box
@@ -59,13 +62,13 @@ function NavBar() {
           }}
         >
           <ButtonNav to={"/"}>Home</ButtonNav>
-          <ButtonNav to={"/"}>Quem somos</ButtonNav>
-          <ButtonNav to={"/"}>Cases</ButtonNav>
-          <ButtonNav to={"/"}>Varejo & Retail Media</ButtonNav>
-          <ButtonNav to={"/"}>TV Corporativa</ButtonNav>
-          <ButtonNav to={"/"}>Comunicação Interna</ButtonNav>
-          <ButtonNav to={"/"}>Contato</ButtonNav>
-          <ButtonNav to={"/"}>Blog</ButtonNav>
+          <ButtonNav to={"/quem-somos"}>Quem somos</ButtonNav>
+          <ButtonNav to={"/cases"}>Cases</ButtonNav>
+          <ButtonNav to={"/varejo-retail"}>Varejo & Retail Media</ButtonNav>
+          <ButtonNav to={"/tv-corporativa"}>TV Corporativa</ButtonNav>
+          <ButtonNav to={"/comunicacao-interna"}>Comunicação Interna</ButtonNav>
+          <ButtonNav to={"/contato"}>Contato</ButtonNav>
+          <ButtonNav to={"/blog"}>Blog</ButtonNav>
         </Box>
         <Box
           sx={{

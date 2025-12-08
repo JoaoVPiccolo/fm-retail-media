@@ -71,7 +71,7 @@ function LetsTalk() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "1fr 2fr",
           width: "100%",
           maxWidth: "80%",
         }}
@@ -123,7 +123,7 @@ function LetsTalk() {
             label="Mensagem"
             variant="standard"
             multiline
-            rows={4}
+            rows={2}
             fullWidth
             InputLabelProps={{
               style: { textAlign: "center", width: "100%", fontWeight: "bold" },
@@ -135,7 +135,8 @@ function LetsTalk() {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: "black",
+              backgroundColor: "transparent",
+              border: "2px solid white",
               color: "white",
               fontWeight: "bold",
               padding: "0.5rem 2rem",
@@ -145,16 +146,30 @@ function LetsTalk() {
           >
             Enviar
           </Button>
-          <Typography
-            sx={{
-              fontSize: "1.2vmax",
-              fontFamily: "Poppins, sans-serif",
-              textAlign: "center",
-              marginTop: "1rem",
-            }}
-          >
-            E-mail: contato@flexmeda.com.br
-          </Typography>
+          <Box>
+            <Typography
+              sx={{
+                fontSize: "1vmax",
+                fontFamily: "Poppins, sans-serif",
+                textAlign: "center",
+                marginTop: "1rem",
+                color: "black",
+                fontWeight: "bold",
+              }}
+            >
+              E-mail:
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1.2vmax",
+                fontFamily: "Poppins, sans-serif",
+                textAlign: "center",
+                marginTop: "1rem",
+              }}
+            >
+              contato@flexmeda.com.br
+            </Typography>
+          </Box>
         </Box>
 
         {/* Contact Section */}
@@ -179,7 +194,7 @@ function LetsTalk() {
               fontWeight: "bold",
             }}
           >
-            Av. Almirante Julio de Sá Bierrenbach, 200
+            R. Ática, 583 - SP, 04634-042
           </Typography>
           <Typography
             sx={{
@@ -187,8 +202,7 @@ function LetsTalk() {
               fontFamily: "Poppins, sans-serif",
             }}
           >
-            Bloco 1A INDIC / 6º andar
-            <br /> Barra da Tijuca / RJ
+            - Campo Belo, São Paulo
           </Typography>
           <Typography
             sx={{
@@ -198,7 +212,7 @@ function LetsTalk() {
               color: "#7ADAA6",
             }}
           >
-            (+55 21) 2147-9730
+            (11) 5535-0050
           </Typography>
         </Box>
       </Box>
