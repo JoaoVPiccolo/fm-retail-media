@@ -9,6 +9,7 @@ import { styled } from "@mui/material";
 import CardsSection from "./routes/homeRoute/CardsSection";
 import banner from "./routes/homeRoute/assets/bannerImage.png";
 import { Divider } from "@mui/material";
+import CasesSection from "./routes/homeRoute/CasesSection";
 function App() {
   const ButtonStyled = styled(Button)({
     backgroundColor: "#b2c535",
@@ -220,11 +221,34 @@ function App() {
         disableGutters
         maxWidth={false}
         sx={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "black",
+          flexDirection: "column",
         }}
       >
-        {}
+        <CasesSection></CasesSection>
+        <Box>
+          <Button
+            sx={{
+              padding: ".8rem 1.8rem",
+              background: "white",
+              color: "black",
+              borderRadius: "1.5rem",
+              fontWeight: "bold",
+              fontSize: "1vmax",
+              margin: "2rem 0",
+              textTransform: "none",
+              ":hover": {
+                backgroundColor: "#76A86F",
+                color: "white",
+              },
+            }}
+          >
+            Ver mais cases
+          </Button>
+        </Box>
       </Container>
     </>
   );
