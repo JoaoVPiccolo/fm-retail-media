@@ -10,6 +10,9 @@ import CardsSection from "./routes/homeRoute/CardsSection";
 import banner from "./routes/homeRoute/assets/bannerImage.png";
 import { Divider } from "@mui/material";
 import CasesSection from "./routes/homeRoute/CasesSection";
+import WhyBuy from "./routes/homeRoute/WhyBuy";
+import LetsTalk from "./routes/homeRoute/LetsTalk";
+
 function App() {
   const ButtonStyled = styled(Button)({
     backgroundColor: "#b2c535",
@@ -250,6 +253,8 @@ function App() {
           </Button>
         </Box>
       </Container>
+      <WhyBuy></WhyBuy>
+      <LetsTalk></LetsTalk>
     </>
   );
 }
