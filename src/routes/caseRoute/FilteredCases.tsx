@@ -10,6 +10,14 @@ function FilteredCases() {
     "Todos",
     ...new Set(casesMock.map((item) => item.categoria)),
   ];
+  const categoryDictionary = {
+    Todos: "Todos",
+    digital_signage: "Sinalização Digital",
+    comunicacao_corporativa: "Comunicação Corporativa",
+    gestao_de_conteudo: "Gestão de Conteúdo",
+    inovacao: "Inovação",
+    producao_de_video: "Produção de Vídeo",
+  };
 
   const filteredCases =
     selectedCategory === "Todos"
@@ -60,13 +68,14 @@ function FilteredCases() {
               backgroundColor:
                 selectedCategory === category ? "#76a86fa8" : "transparent",
               fontWeight: "bold",
+              fontSize: ".9vmax",
               textTransform: "none",
               ":hover": {
                 backgroundColor: "#ffffff31",
               },
             }}
           >
-            {category}
+            {categoryDictionary[category as keyof typeof categoryDictionary]}
           </Button>
         ))}
       </Box>

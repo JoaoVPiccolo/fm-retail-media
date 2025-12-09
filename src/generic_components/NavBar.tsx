@@ -1,6 +1,4 @@
 import Box from "@mui/material/Box";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
 import styled from "@emotion/styled";
@@ -64,11 +62,7 @@ function NavBar() {
           <ButtonNav to={"/"}>Home</ButtonNav>
           <ButtonNav to={"/quem-somos"}>Quem somos</ButtonNav>
           <ButtonNav to={"/cases"}>Cases</ButtonNav>
-          <ButtonNav to={"/varejo-retail"}>Varejo & Retail Media</ButtonNav>
-          <ButtonNav to={"/tv-corporativa"}>TV Corporativa</ButtonNav>
-          <ButtonNav to={"/comunicacao-interna"}>Comunicação Interna</ButtonNav>
           <ButtonNav to={"/contato"}>Contato</ButtonNav>
-          <ButtonNav to={"/blog"}>Blog</ButtonNav>
         </Box>
         <Box
           sx={{
