@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Container } from "@mui/material";
 import NavBar from "./generic_components/NavBar";
 import { Box } from "@mui/material";

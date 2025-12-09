@@ -1,4 +1,4 @@
-import { Container, Box, Typography, Button } from "@mui/material";
+import { Container } from "@mui/material";
 import NavBar from "../../generic_components/NavBar";
 import FilteredCases from "./FilteredCases";
 function CaseHome() {
