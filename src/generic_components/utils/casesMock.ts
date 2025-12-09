@@ -19,9 +19,9 @@ export const casesMock = [
     imagem: xi_logistics,
     video: "/media/xi_logistics_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Xi Logistics amplia a experiência dos visitantes com uma plataforma moderna de comunicação digital, unindo tecnologia e narrativa visual para transformar interação e presença de marca.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O ambiente reúne videowalls, painéis de LED exclusivos e canais inéditos que ampliam impacto e curiosidade. Um LED quadrifacetado garante foco total no produto, entregando alto stopping-power. Além disso, a loja conta com disparos por RFID, ativações interativas, displays na entrada e gestão contínua de conteúdo estratégico.",
   },
   {
     empresa: "Nova Tech Store",
@@ -30,9 +30,9 @@ export const casesMock = [
     imagem: nova_tech_store,
     video: "/media/nova_tech_store_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Nova Tech Store eleva a jornada do consumidor com uma experiência completa de mídia digital, integrando comunicação inteligente e recursos visuais imersivos.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O espaço utiliza videowalls, LEDs personalizados e canais dedicados que fortalecem a interação e estimulam descoberta. Entre formatos especiais, um LED de quatro faces evidencia produtos com clareza impactante. Também há disparo de vídeos via RFID, ações interativas, displays na entrada e produção contínua de conteúdo.",
   },
   {
     empresa: "Max Shopping Center",
@@ -41,9 +41,9 @@ export const casesMock = [
     imagem: max_shopping_center,
     video: "/media/max_shopping_center_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "O Max Shopping Center moderniza sua comunicação com uma solução de sinalização digital integrada, trazendo dinamismo e tecnologia para enriquecer a navegação do visitante.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O local conta com videowalls, painéis de LED sob medida e canais exclusivos que criam novas formas de exploração. Um LED de quatro faces garante destaque absoluto para campanhas. Somado a isso, o espaço oferece interações via RFID, ativações sensoriais, displays estratégicos e curadoria completa de conteúdo.",
   },
   {
     empresa: "Urban Outdoor Media",
@@ -52,9 +52,9 @@ export const casesMock = [
     imagem: urban_outdoor_media,
     video: "/media/urban_outdoor_media_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Urban Outdoor Media fortalece sua presença com uma estrutura digital robusta, unindo inovação visual e estratégias de comunicação para maior impacto urbano.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "A instalação apresenta videowalls, LEDs personalizados e canais inéditos, criando experiências marcantes. O LED quadrifacetado central potencializa campanhas com alta visibilidade. O projeto inclui ainda RFID para disparos, ativações interativas, displays de destaque e gestão completa de conteúdo digital.",
   },
 
   {
@@ -64,9 +64,9 @@ export const casesMock = [
     imagem: prime_corp,
     video: "/media/prime_corp_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Prime Corp transforma sua comunicação interna com soluções digitais unificadas, permitindo alinhamento estratégico e mensagens mais claras para equipes e visitantes.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O ambiente conta com videowalls, painéis de LED projetados e canais dedicados que reforçam cultura e informação. Um LED de quatro faces garante foco total em campanhas internas. Há ainda ativações por RFID, interações guiadas, displays de entrada e gestão contínua de conteúdo corporativo.",
   },
   {
     empresa: "Global Hr Solutions",
@@ -75,9 +75,9 @@ export const casesMock = [
     imagem: global_hr_solutions,
     video: "/media/global_hr_solutions_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Global HR Solutions moderniza seus processos comunicacionais com uma rede digital integrada, promovendo engajamento e fluidez na transmissão de informações.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "A estrutura reúne videowalls, LEDs customizados e canais internos que aumentam aderência e clareza. O LED quadrifacetado facilita destaque de mensagens-chave. O projeto inclui RFID para disparos, ativações colaborativas, displays de boas-vindas e gerenciamento completo do conteúdo exibido.",
   },
 
   {
@@ -87,9 +87,9 @@ export const casesMock = [
     imagem: content_master_agency,
     video: "/media/content_master_agency_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Content Master Agency expande seu fluxo de criação com uma plataforma digital unificada, trazendo agilidade, organização e impacto visual aos conteúdos distribuídos.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O ambiente possui videowalls, LEDs personalizados e canais temáticos que reforçam a narrativa da marca. O LED quadrifacetado aumenta a clareza das entregas. Também estão presentes interações via RFID, áreas de experimentação, displays de destaque e operação contínua de curadoria de conteúdo.",
   },
   {
     empresa: "Data Media Hub",
@@ -98,9 +98,9 @@ export const casesMock = [
     imagem: data_media_hub,
     video: "/media/data_media_hub_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Data Media Hub aprimora seu ecossistema digital com uma solução completa para distribuição visual, garantindo consistência e presença marcante em todos os pontos.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O local combina videowalls, LEDs sob medida e canais exclusivos que elevam clareza e retenção. O LED quatro faces destaca campanhas com impacto contínuo. O espaço conta com RFID para disparos, módulos interativos, displays estratégicos e gestão dedicada de conteúdo.",
   },
 
   {
@@ -110,9 +110,9 @@ export const casesMock = [
     imagem: future_lab_industries,
     video: "/media/future_lab_industries_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Future Lab Industries incorpora soluções digitais avançadas para transformar processos, elevando inovação e reforçando uma experiência tecnológica imersiva.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O ambiente introduz videowalls, LEDs futurísticos e canais inéditos que estimulam descoberta. O LED quadrifacetado amplia a visibilidade de projetos e protótipos. Além disso, há RFID para disparos, experimentações interativas, displays de entrada e gestão ativa de conteúdo inovador.",
   },
   {
     empresa: "Alpha Innovations",
@@ -121,9 +121,9 @@ export const casesMock = [
     imagem: alpha_innovations,
     video: "/media/alpha_innovations_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Alpha Innovations adota uma plataforma de mídia digital completa, transformando comunicação e ampliando impacto em ações voltadas à tecnologia e desenvolvimento.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O espaço apresenta videowalls, LEDs personalizados e canais próprios que reforçam identidade e descoberta. O LED quadrifacetado garante evidência a lançamentos e pesquisas. Há também RFID, módulos interativos, displays informativos e gestão estratégica de conteúdo.",
   },
 
   {
@@ -133,9 +133,9 @@ export const casesMock = [
     imagem: motion_studio_plus,
     video: "/media/motion_studio_plus_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Motion Studio Plus aprimora seu processo criativo com soluções digitais integradas, fortalecendo produção, exibição e impacto visual de materiais audiovisuais.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O estúdio utiliza videowalls, LEDs especiais e canais dedicados para acompanhar fluxos de produção. O LED quadrifacetado destaca materiais em revisão. Também há RFID para acionamento, áreas interativas, displays de suporte e gestão constante do conteúdo do estúdio.",
   },
   {
     empresa: "Visual Frame Studios",
@@ -144,8 +144,8 @@ export const casesMock = [
     imagem: visual_frame_studios,
     video: "/media/visual_frame_studios_video.mp4",
     descricao:
-      "Mais uma vez revolucionando a experiência do cliente, com uma experiência multicanal de sinalização digital, levando uma estratégia integrada de tecnologia e conteúdo.",
+      "A Visual Frame Studios evolui sua comunicação visual com uma plataforma digital dinâmica, facilitando apresentações, revisões e exibições de projetos audiovisuais.",
     subdescricao:
-      "A loja conta com diversos espaços, incluindo Videowall, Painéis de led personalizados e Canais inéditos, impulsionando interação, gerando curiosidades e trazendo novas experiências. Entre os formatos diferenciados de telas, desenvolvemos um LED especial de quatro faces, que destaca e comunica o produto com muita clareza, garantindo o efeito 100% stopping-power. Além disso, contou com interatividade através do disparo de vídeos por RFID ou ação do usuário, display stop-shopping na entrada das lojas, além do desenvolvimento e gestão do conteúdo das lojas.",
+      "O ambiente conta com videowalls, LEDs customizados e canais voltados à produção. O LED quadrifacetado reforça análises de cenas com alta nitidez. Além disso, há disparo via RFID, módulos de interação, displays estratégicos e operação dedicada à gestão do conteúdo interno.",
   },
 ];

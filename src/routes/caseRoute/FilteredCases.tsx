@@ -35,7 +35,7 @@ function FilteredCases() {
         variant="h4"
         sx={{ fontWeight: "bold", fontFamily: "Poppins, sans-serif" }}
       >
-        Filtrar Cases
+        Cases
       </Typography>
 
       {/* Buttons Section */}
