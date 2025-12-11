@@ -6,26 +6,27 @@ import {
   Typography,
   List,
   ListItem,
-  Link,
+  Button,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+
 interface FlipCardProps {
-  title: string;
-  links: string[];
+  title: string; // Categoria
+  cases: { nome: string; slug: string }[];
   image: string;
 }
 
-export default function FlipCard({ title, links, image }: FlipCardProps) {
+export default function FlipCard({ title, cases, image }: FlipCardProps) {
   const [hover, setHover] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Box
       sx={{
-        perspective: 1000,
-        width: 300,
-        height: 460,
+        flex: 1,
+        height: 300,
         cursor: "pointer",
-        borderRadius: "1rem",
         overflow: "hidden",
       }}
       onMouseEnter={() => setHover(true)}
@@ -53,7 +54,6 @@ export default function FlipCard({ title, links, image }: FlipCardProps) {
             display: "flex",
             justifyContent: "start",
             alignItems: "end",
-            borderRadius: "1rem",
             bgcolor: "",
             color: "white",
             backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.62)), url(${image})`,
@@ -85,29 +85,90 @@ export default function FlipCard({ title, links, image }: FlipCardProps) {
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
+            justifyContent: "flex-start",
             alignItems: "center",
-            borderRadius: "1rem",
-            bgcolor: "#1a1a1a",
-            color: "white",
+            bgcolor: "#f3f3f3",
+            color: "#222",
+            padding: "1.5rem 1rem 1rem 1rem",
+            boxSizing: "border-box",
           }}
         >
-          <CardContent>
-            <List>
-              {links.map((link, index) => (
-                <ListItem key={index}>
-                  <Link
-                    href={link}
-                    color="inherit"
-                    underline="hover"
-                    sx={{ fontSize: "1rem" }}
-                  >
-                    {link}
-                  </Link>
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
+          <List
+            sx={{
+              width: "100%",
+              mb: 2,
+              p: 0,
+              flex: 1,
+              overflow: "auto",
+            }}
+          >
+            {cases.map((c, idx) => (
+              <ListItem
+                key={c.slug}
+                disablePadding
+                sx={{
+                  justifyContent: "center",
+                  p: 0,
+                  mb: 1,
+                }}
+              >
+                <Button
+                  onClick={() => navigate(c.slug)}
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    color: "#222",
+                    background: "none",
+                    textTransform: "none",
+                    width: "100%",
+                    justifyContent: "center",
+                    borderRadius: 0,
+                    ":hover": {
+                      background: "#f3f3f3",
+                      color: "#76A86F",
+                    },
+                  }}
+                >
+                  {c.nome}
+                </Button>
+              </ListItem>
+            ))}
+          </List>
+          <Box sx={{ flexGrow: 0 }} />
+          <Box
+            sx={{
+              width: "100%",
+              position: "absolute",
+              left: 0,
+              bottom: 20,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              onClick={() => navigate("/cases")}
+              sx={{
+                color: "#222",
+                fontWeight: 700,
+                borderRadius: "2rem",
+                background: "#94fd8a",
+                px: 4,
+                py: 1.2,
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px 0 rgba(0,0,0,0.08)",
+                textTransform: "none",
+                minWidth: 160,
+                ":hover": {
+                  background: "transparent",
+                  color: "#222",
+                },
+              }}
+            >
+              Veja os cases
+            </Button>
+          </Box>
         </Card>
       </Box>
     </Box>

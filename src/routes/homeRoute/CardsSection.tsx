@@ -5,6 +5,13 @@ import image_1 from "./assets/img_card1.png";
 import image_2 from "./assets/img_card2.png";
 import image_3 from "./assets/img_card3.png";
 import image_4 from "./assets/img_card4.png";
+import { casesMock } from "../../generic_components/utils/casesMock";
+
+function getCasesByCategory(category: string) {
+  return casesMock
+    .filter((c) => c.categoria === category)
+    .map((c) => ({ nome: c.empresa, slug: c.slug }));
+}
 
 function CardsSection() {
   return (
@@ -17,56 +24,73 @@ function CardsSection() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        background: "black",
+        background: "transparent",
         padding: "2rem",
         gap: 5,
       }}
     >
-      <Typography
-        sx={{
-          color: "white",
-          fontSize: "3vmax",
-          fontWeight: "700",
-          textAlign: "center",
-          fontFamily: "popper,sans-serif",
-        }}
-      >
-        Soluções Flex para inovar em seu negócio
-      </Typography>
       <Box
         sx={{
-          background: "gray",
-          width: "6%",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 2,
+          width: "100%",
+          justifyContent: "center",
         }}
       >
-        <Divider sx={{ borderBottom: "6px solid #76A86F" }} />
+        <Divider
+          sx={{
+            borderBottom: "2px solid #76A86F",
+            width: "20%",
+          }}
+        />
+        <Typography
+          sx={{
+            color: "white",
+            fontSize: "2.5vmax",
+            fontWeight: "600",
+            textAlign: "center",
+            fontFamily: "popper,sans-serif",
+          }}
+        >
+          Soluções Flex para inovar <br />
+          em seu negócio
+        </Typography>
+        <Divider
+          sx={{
+            borderBottom: "2px solid #76A86F",
+            width: "20%",
+          }}
+        />
       </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",
-          gap: 3,
+          width: "90%",
+          gap: 1,
         }}
       >
         <FlipCard
-          title="Varejo"
-          links={["#section1", "#section2"]}
+          title="Digital Signage"
+          cases={getCasesByCategory("digital_signage")}
           image={image_1}
         />
         <FlipCard
-          title="Corporativo"
-          links={["#section3", "#section4"]}
+          title="Comunicacao Corporativa"
+          cases={getCasesByCategory("comunicacao_corporativa")}
           image={image_2}
         />
         <FlipCard
-          title="Comunicação Interna"
-          links={["#section5", "#section6"]}
+          title="Gestao de Conteudo"
+          cases={getCasesByCategory("gestao_de_conteudo")}
           image={image_3}
         />
         <FlipCard
-          title="Phygital Experiences"
-          links={["#section7", "#section8"]}
+          title="Inovacao"
+          cases={getCasesByCategory("inovacao")}
           image={image_4}
         />
       </Box>

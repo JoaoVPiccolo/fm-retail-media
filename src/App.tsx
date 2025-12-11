@@ -205,6 +205,8 @@ function App() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            width: "80%",
+            gap: 3,
           }}
         >
           <Typography
@@ -216,7 +218,7 @@ function App() {
           >
             Cases
           </Typography>
-          <Divider sx={{ borderBottom: "6px solid #76A86F", width: "30%" }} />
+          <Divider sx={{ borderBottom: "2px solid #76A86F", width: "60%" }} />
         </Box>
       </Container>
       <Container
@@ -226,7 +228,7 @@ function App() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "black",
+          backgroundColor: "transparent",
           flexDirection: "column",
         }}
       >

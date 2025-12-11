@@ -9,7 +9,6 @@ function WhyBuy() {
     <Container
       maxWidth={false}
       sx={{
-        backgroundColor: "black",
         color: "white",
         padding: "2rem",
         textAlign: "center",
