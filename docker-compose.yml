@@ -1,0 +1,26 @@
+# ============================================================================
+# FlexReset Docker Compose - Main Configuration
+# ============================================================================
+# Main docker-compose file that extends service definitions from components.
+# This file includes docker-compose.components.yml and defines shared resources.
+#
+# Usage:
+#   Development:  docker compose --profile dev up
+#   Production:   docker compose --profile prod up
+#
+# Additional profiles for individual services:
+#   - dev-db / prod-db     : Database only
+#   - dev-api / prod-api   : Backend API only
+#   - dev-web / prod-web   : Frontend only
+#   - dev-edge / prod-edge : Edge service (nginx reverse proxy) only
+#
+# DO NOT run docker-compose.components.yml directly.
+# Always use this main docker-compose.yml file.
+# ============================================================================
+
+include:
+  - path: docker-compose.components.yml
+
+networks:
+  fm-retail-network:
+    driver: bridge

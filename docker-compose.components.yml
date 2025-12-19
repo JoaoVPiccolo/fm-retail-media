@@ -1,0 +1,163 @@
+# ============================================================================
+# FlexReset Docker Compose - Service Components
+# ============================================================================
+# This file contains all service definitions (base configurations).
+# Extended by the main docker-compose.yml file.
+#
+# DO NOT run this file directly with docker compose up.
+# Always use the main docker-compose.yml file.
+# ============================================================================
+
+services:
+  fm-flexreset-db:
+    image: timescale/timescaledb:latest-pg16
+    container_name: fm-flexreset-db
+    restart: unless-stopped
+    profiles:
+      - dev
+      - prod
+      - dev-db
+      - prod-db
+    env_file:
+      - ./database/config/.env.db
+    volumes:
+      - flexreset_db_data:/var/lib/postgresql/data
+    networks:
+      - flexreset-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d flexreset"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  fm-flexreset-api-dev:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: fm-flexreset-api
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1g"
+        max-file: "3"
+    profiles:
+      - dev
+      - dev-api
+    env_file:
+      - ./backend/config/.env.api.dev
+    depends_on:
+      fm-flexreset-db:
+        condition: service_healthy
+        required: false
+    ports:
+      - "55481:55481"
+    networks:
+      - flexreset-network
+    command: >
+      sh -c "
+        ./scripts/run-migration.sh &&
+        node dist/src/main.js
+      "
+    healthcheck:
+      test: ["CMD-SHELL", "node healthcheck.js"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  fm-flexreset-api-prod:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: fm-flexreset-api
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1g"
+        max-file: "3"
+    profiles:
+      - prod
+      - prod-api
+    env_file:
+      - ./backend/config/.env.api.prod
+    depends_on:
+      fm-flexreset-db:
+        condition: service_healthy
+        required: false
+    ports:
+      - "55481:55481"
+    networks:
+      - flexreset-network
+    command: >
+      sh -c "
+        ./scripts/run-migration.sh &&
+        node dist/src/main.js
+      "
+    healthcheck:
+      test: ["CMD-SHELL", "node healthcheck.js"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  fm-flexreset-web-dev:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        BUILD_MODE: ${BUILD_MODE:-production}
+    container_name: fm-flexreset-web
+    restart: unless-stopped
+    profiles:
+      - dev
+      - dev-web
+    env_file:
+      - ./frontend/config/.env.web.dev
+    networks:
+      - flexreset-network
+  
+  fm-flexreset-web-prod:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        BUILD_MODE: ${BUILD_MODE:-production}
+    container_name: fm-flexreset-web
+    restart: unless-stopped
+    profiles:
+      - prod
+      - prod-web
+    env_file:
+      - ./frontend/config/.env.web.prod
+    networks:
+      - flexreset-network
+
+  fm-flexreset-edge-dev:
+    image: nginx:1.27-alpine
+    container_name: fm-flexreset-edge
+    restart: unless-stopped
+    profiles:
+      - dev
+      - dev-edge
+    ports:
+      - "5173:80"
+    volumes:
+      - ./edge/nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - flexreset-network
+
+  fm-flexreset-edge-prod:
+    image: nginx:1.27-alpine
+    container_name: fm-flexreset-edge
+    restart: unless-stopped
+    profiles:
+      - prod
+      - prod-edge
+    ports:
+      - "57443:443"
+    volumes:
+      - ./edge/nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
+      - /root/volumes/certs/flexmart/flexmart.com.br.fullchain.cer:/etc/ssl/certs/flexreset/fullchain.pem:ro
+      - /root/volumes/certs/flexmart/flexmart.com.br.key:/etc/ssl/private/flexreset/privkey.pem:ro
+    networks:
+      - flexreset-network

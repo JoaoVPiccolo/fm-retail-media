@@ -63,9 +63,9 @@ function NavBar() {
           }}
         >
           <ButtonNav to={"/"}>Home</ButtonNav>
-          <ButtonNav to={"/quem-somos"}>Quem somos</ButtonNav>
           <ButtonNav to={"/cases"}>Cases</ButtonNav>
-          <ButtonNav to={"/contato"}>Contato</ButtonNav>
+          {/* <ButtonNav to={"/quem-somos"}>Quem somos</ButtonNav> */}
+          {/* <ButtonNav to={"/contato"}>Contato</ButtonNav> */}
         </Box>
         <Box
           sx={{

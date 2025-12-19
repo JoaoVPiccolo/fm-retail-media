@@ -103,7 +103,7 @@ export default function FlipCard({ title, cases, image }: FlipCardProps) {
               overflow: "auto",
             }}
           >
-            {cases.map((c, idx) => (
+            {cases.map((c, _) => (
               <ListItem
                 key={c.slug}
                 disablePadding
