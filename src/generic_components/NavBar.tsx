@@ -5,8 +5,7 @@ import styled from "@emotion/styled";
 import logo from "./assets/icons/Logo_fundo escuro.png";
 import logoSimbulo from "./assets/icons/Simbolo_fundo escuro.png";
 
-function NavBar() {
-  const ButtonNav = styled(NavLink)(() => ({
+const ButtonNav = styled(NavLink)(() => ({
     color: "white",
     fontFamily: "poppins, sans-serif",
     textDecoration: "none",
@@ -20,8 +19,9 @@ function NavBar() {
       color: "#98FF8E",
       borderBottom: "2px solid #98FF8E",
     },
-  }));
+}));
 
+function NavBar() {
   return (
     <>
       <Box
@@ -63,9 +63,6 @@ function NavBar() {
           }}
         >
           <ButtonNav to={"/"}>Home</ButtonNav>
-          <ButtonNav to={"/cases"}>Cases</ButtonNav>
-          {/* <ButtonNav to={"/quem-somos"}>Quem somos</ButtonNav> */}
-          {/* <ButtonNav to={"/contato"}>Contato</ButtonNav> */}
         </Box>
         <Box
           sx={{

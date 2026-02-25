@@ -1,9 +1,23 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Case from "../../generic_components/Case";
 import { casesMock } from "../../generic_components/utils/casesMock";
+import { CategorySwiper } from "../../components/CategorySwiper";
+import { useCategories } from "../../shared/store";
 
 export default function CasesSection() {
+  const categorie = useCategories((state) => (state.categorie))
+
+  const categoriesFiltered =
+    categorie === "Todos" 
+      ? casesMock 
+      : casesMock?.filter((caseItem) => caseItem.categoria === categorie);
+
   return (
+    <>
+    <Box>
+      <CategorySwiper>
+      </CategorySwiper>
+    </Box>
     <Container
       disableGutters
       maxWidth={false}
@@ -15,7 +29,7 @@ export default function CasesSection() {
         overflow: "hidden",
       }}
     >
-      {casesMock.slice(0, 9).map((caseItem) => (
+      {categoriesFiltered.slice(0, 9).map((caseItem) => (
         <Case
           key={caseItem.empresa}
           name={caseItem.empresa}
@@ -24,5 +38,7 @@ export default function CasesSection() {
         />
       ))}
     </Container>
+    </>
   );
+
 }

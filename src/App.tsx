@@ -12,21 +12,22 @@ import CasesSection from "./routes/homeRoute/CasesSection";
 import WhyBuy from "./routes/homeRoute/WhyBuy";
 import LetsTalk from "./routes/homeRoute/LetsTalk";
 
-function App() {
-  const ButtonStyled = styled(Button)({
-    backgroundColor: "#b2c535",
-    color: "black",
-    fontWeight: "bold",
-    fontSize: ".8vmax",
-    margin: "1vmax",
-    padding: "1vmax 2vmax",
-    borderRadius: "1.8rem",
-    textTransform: "none",
-    ":hover": {
-      color: "white",
-      backgroundColor: "black",
-    },
+const ButtonStyled = styled(Button)({
+  backgroundColor: "#b2c535",
+  color: "black",
+  fontWeight: "bold",
+  fontSize: ".8vmax",
+  margin: "1vmax",
+  padding: "1vmax 2vmax",
+  borderRadius: "1.8rem",
+  textTransform: "none",
+  ":hover": {
+    color: "white",
+    backgroundColor: "black",
+  },
   });
+function App() {
+
   return (
     <>
       <NavBar />
@@ -194,7 +195,6 @@ function App() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "black",
           padding: "2rem",
           gap: 2,
         }}
@@ -233,26 +233,6 @@ function App() {
         }}
       >
         <CasesSection></CasesSection>
-        <Box>
-          <Button
-            sx={{
-              padding: ".8rem 1.8rem",
-              background: "white",
-              color: "black",
-              borderRadius: "1.5rem",
-              fontWeight: "bold",
-              fontSize: "1vmax",
-              margin: "2rem 0",
-              textTransform: "none",
-              ":hover": {
-                backgroundColor: "#76A86F",
-                color: "white",
-              },
-            }}
-          >
-            Ver mais cases
-          </Button>
-        </Box>
       </Container>
       <WhyBuy></WhyBuy>
       <LetsTalk></LetsTalk>
