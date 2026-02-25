@@ -1,4 +1,5 @@
 import { Container } from "@mui/material";
+import Footer from "./components/Footer";
 import NavBar from "./generic_components/NavBar";
 import { Box } from "@mui/material";
 import videoBackground from "./generic_components/assets/videos/green_earth.mp4";
@@ -236,6 +237,7 @@ function App() {
       </Container>
       <WhyBuy></WhyBuy>
       <LetsTalk></LetsTalk>
+      <Footer></Footer>
     </>
   );
 }
