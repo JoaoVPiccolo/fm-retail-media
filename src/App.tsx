@@ -6,7 +6,6 @@ import videoBackground from "./generic_components/assets/videos/green_earth.mp4"
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material";
-import CardsSection from "./routes/homeRoute/CardsSection";
 import banner from "./routes/homeRoute/assets/bannerImage.png";
 import { Divider } from "@mui/material";
 import CasesSection from "./routes/homeRoute/CasesSection";
@@ -133,11 +132,59 @@ function App() {
           </Box>
         </Box>
       </Container>
-      <CardsSection></CardsSection>
       <Container
         disableGutters
         maxWidth={false}
         sx={{
+          minHeight: "20vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2rem",
+          gap: 2,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "80%",
+            gap: 3,
+          }}
+        >
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: "3vmax",
+              fontWeight: "700",
+            }}
+          >
+            Cases
+          </Typography>
+          <Divider sx={{ borderBottom: "2px solid #76A86F", width: "60%" }} />
+        </Box>
+      </Container>
+      <Container
+        disableGutters
+        maxWidth={false}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "transparent",
+          flexDirection: "column",
+        }}
+      >
+        <CasesSection></CasesSection>
+      </Container>
+      <Container
+        disableGutters
+        maxWidth={false}
+        sx={{
+          paddingTop: "2.6rem",
           minHeight: "10vh",
           width: "100%",
           overflow: "hidden",
@@ -186,54 +233,6 @@ function App() {
             Mais de 13 milhões de pessoas impactadas diariamente
           </Typography>
         </Box>
-      </Container>
-      <Container
-        disableGutters
-        maxWidth={false}
-        sx={{
-          minHeight: "20vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "2rem",
-          gap: 2,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "80%",
-            gap: 3,
-          }}
-        >
-          <Typography
-            sx={{
-              color: "white",
-              fontSize: "3vmax",
-              fontWeight: "700",
-            }}
-          >
-            Cases
-          </Typography>
-          <Divider sx={{ borderBottom: "2px solid #76A86F", width: "60%" }} />
-        </Box>
-      </Container>
-      <Container
-        disableGutters
-        maxWidth={false}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "transparent",
-          flexDirection: "column",
-        }}
-      >
-        <CasesSection></CasesSection>
       </Container>
       <WhyBuy></WhyBuy>
       <LetsTalk></LetsTalk>
