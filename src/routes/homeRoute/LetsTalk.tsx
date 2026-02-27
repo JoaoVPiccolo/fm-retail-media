@@ -1,17 +1,4 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
-import footerImg from "./assets/formsImage.png";
-// Padronizando os TextFields para manter consistência visual
-const textFieldStyles = {
-  backgroundColor: "white",
-  borderRadius: "4px",
-  padding: "0.5rem",
-  display: "flex",
-  background: "transparent",
-  borderBottom: "2px solid white",
-  "& label.Mui-focused": {
-    color: "white",
-  },
-};
+import { Container, Box, Typography} from "@mui/material";
 
 function LetsTalk() {
   return (

@@ -12,7 +12,8 @@ interface FeatureItemProps {
 }
 
 const FeatureItem = ({ icon, value, description }: FeatureItemProps) => (
-  <Grid item xs={12} sm={6} md={3}>
+  // Updated to use the MUI v6 compatible 'size' prop instead of 'item'
+  <Grid size={{ xs: 12, sm: 6, md: 3 }}>
     <Box
       sx={{
         display: "flex",
