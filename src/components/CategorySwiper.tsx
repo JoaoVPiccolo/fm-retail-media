@@ -41,6 +41,7 @@ export function CategorySwiper (){
                     display:"flex",
                     flexDirection: "row",
                     justifyContent: "center",
+                    maxWidth:"90vw",
                     alignItems: "center"
                 }}
             >
