@@ -15,12 +15,12 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
       maxWidth={false}
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "column", lg: "row" },
         maxWidth:"80%",
         gap: { xs: 4, md: 8 },
         alignItems: "center",
         justifyContent: "center",
-        minHeight: { md: "600px" },
+        minHeight: { md: "500px" },
         paddingBottom: { xs: "3rem", md: "0px" },
         paddingTop: { xs: "2rem", md: "0px" },
         mb: { xs: 0, md: 5 },
@@ -75,7 +75,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
             fontWeight: "bold",
             fontFamily: "montserrat",
             textAlign: { md: "left", xs: "center" },
-            fontSize: { xs: "1.8rem", md: "2.5rem" },
+            fontSize: { xs: "1.8rem", md: "2rem" },
             color: "white",
           }}
         >
@@ -86,7 +86,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           sx={{
             fontFamily: "montserrat",
             textAlign: { md: "left", xs: "center" },
-            fontSize: { xs: "1rem", md: "1.2rem" },
+            fontSize: { xs: "1rem", md: "1rem" },
             color: "#80ad79",
             fontWeight: "500",
           }}
@@ -98,7 +98,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           sx={{
             fontFamily: "inter",
             textAlign: { md: "left", xs: "justify" },
-            fontSize: { xs: "1rem", md: "1.1rem" },
+            fontSize: { xs: "1rem", md: "1rem" },
             color: "white",
             lineHeight: 1.6,
           }}
@@ -110,7 +110,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           sx={{
             fontFamily: "inter",
             textAlign: { md: "left", xs: "justify" },
-            fontSize: { xs: "1rem", md: "1.1rem" },
+            fontSize: { xs: "1rem", md: "1rem" },
             color: "white",
             lineHeight: 1.6,
           }}
