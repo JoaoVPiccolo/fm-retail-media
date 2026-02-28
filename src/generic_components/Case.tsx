@@ -1,88 +1,125 @@
-import { Divider } from "@mui/material";
-import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Container, Typography,} from "@mui/material";
 
 interface CaseProps {
   name: string;
   image: string;
-  route: string;
+  title: string;
+  impactPhrase: string;
+  description_1: string;
+  description_2: string;
 }
 
-export default function Case({ name, image, route }: CaseProps) {
+function SwiperComponent({name, image, impactPhrase, title, description_1, description_2}: CaseProps) {
   return (
-    <Link to={route} style={{ textDecoration: "none" }}>
+    <Container
+      maxWidth={false}
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
+        maxWidth:"80%",
+        gap: { xs: 4, md: 8 },
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: { md: "600px" },
+        paddingBottom: { xs: "3rem", md: "0px" },
+        paddingTop: { xs: "2rem", md: "0px" },
+        mb: { xs: 0, md: 5 },
+      }}
+    >
       <Box
         sx={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: { xs: "250px", md: "500px" },
           width: "100%",
-          height: "35vh",
-          position: "relative",
-          overflow: "hidden", // impede vazamento da animação
-          cursor: "pointer",
-          // Quando o card é hover → anima o box cinza
-          "&:hover .hover-box": {
-            transform: "translateY(0%)",
-          },
         }}
       >
-        {/* Box verde (fica sempre estático no topo) */}
         <Box
+          component="img"
+          src={image}
+          alt={name}
           sx={{
-            width: "100%",
             height: "100%",
-            backgroundImage: `url(${image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 1,
+            objectFit: "contain",
+            borderRadius: "8px",
+            maxWidth: { xs: "65%", md: "100%" },
+            width: "auto", // Garante que a proporção se mantenha
           }}
-        ></Box>
+        />
+      </Box>
 
-        {/* Box cinza (começa escondido embaixo e sobe no hover) */}
-        <Box
-          className="hover-box"
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          width: "100%",
+          borderLeft: {
+            md: `4px solid #51724C`,
+            xs: "none",
+          },
+          borderBottom: {
+            md: "none",
+            xs: `4px solid #51724C`,
+          },
+          paddingLeft: { md: "3rem", xs: "0" },
+          paddingBottom: { xs: "1.5rem", md: "0" },
+          gap: 2,
+        }}
+      >
+        <Typography
           sx={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(24, 24, 24, 0.7)",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            transform: "translateY(100%)", // escondido abaixo do card
-            transition: "transform .4s ease",
-            zIndex: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            fontWeight: "bold",
+            fontFamily: "montserrat",
+            textAlign: { md: "left", xs: "center" },
+            fontSize: { xs: "1.8rem", md: "2.5rem" },
+            color: "white",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "1.6vmax",
-              }}
-            >
-              {name}
-            </Typography>
-            <Divider
-              sx={{
-                borderBottom: ".25rem solid #77c96cff",
-                width: "2rem",
-                margin: "0 auto",
-              }}
-            />
-          </Box>
-        </Box>
+          {title}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontFamily: "montserrat",
+            textAlign: { md: "left", xs: "center" },
+            fontSize: { xs: "1rem", md: "1.2rem" },
+            color: "#80ad79",
+            fontWeight: "500",
+          }}
+        >
+          {impactPhrase}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontFamily: "inter",
+            textAlign: { md: "left", xs: "justify" },
+            fontSize: { xs: "1rem", md: "1.1rem" },
+            color: "white",
+            lineHeight: 1.6,
+          }}
+        >
+          {description_1}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontFamily: "inter",
+            textAlign: { md: "left", xs: "justify" },
+            fontSize: { xs: "1rem", md: "1.1rem" },
+            color: "white",
+            lineHeight: 1.6,
+          }}
+        >
+          {description_2}
+        </Typography>
       </Box>
-    </Link>
+    </Container>
   );
 }
+
+export default SwiperComponent;

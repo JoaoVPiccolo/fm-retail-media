@@ -4,30 +4,13 @@ import NavBar from "./generic_components/NavBar";
 import { Box } from "@mui/material";
 import videoBackground from "./generic_components/assets/videos/green_earth.mp4";
 import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
-import { styled } from "@mui/material";
 import banner from "./routes/homeRoute/assets/bannerImage.png";
 import { Divider } from "@mui/material";
 import CasesSection from "./routes/homeRoute/CasesSection";
 import WhyBuy from "./routes/homeRoute/WhyBuy";
 import LetsTalk from "./routes/homeRoute/LetsTalk";
 
-const ButtonStyled = styled(Button)({
-  backgroundColor: "#b2c535",
-  color: "black",
-  fontWeight: "bold",
-  fontSize: ".8vmax",
-  margin: "1vmax",
-  padding: "1vmax 2vmax",
-  borderRadius: "1.8rem",
-  textTransform: "none",
-  ":hover": {
-    color: "white",
-    backgroundColor: "black",
-  },
-  });
 function App() {
-
   return (
     <>
       <NavBar />
@@ -107,29 +90,6 @@ function App() {
               Ao Corporativo
             </h2>
           </Typography>
-          <Box>
-            <ButtonStyled>Peça uma Proposta</ButtonStyled>
-            <Button
-              sx={{
-                backgroundColor: "transparent",
-                color: "white",
-                border: "2px solid white",
-                fontWeight: "bold",
-                fontSize: ".8vmax",
-                margin: "1vmax",
-                padding: "1vmax 2vmax",
-                borderRadius: "1.8rem",
-                textTransform: "none",
-                ":hover": {
-                  color: "white",
-                  backgroundColor: "black",
-                  border: "2px solid black",
-                },
-              }}
-            >
-              Conheça nossos cases
-            </Button>
-          </Box>
         </Box>
       </Container>
       <Container
@@ -151,7 +111,7 @@ function App() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            width: "80%",
+            width: "100%",
             gap: 3,
           }}
         >
@@ -162,7 +122,8 @@ function App() {
               fontWeight: "700",
             }}
           >
-            Cases
+          Nossos Segmentos
+            
           </Typography>
           <Divider sx={{ borderBottom: "2px solid #76A86F", width: "60%" }} />
         </Box>
@@ -174,7 +135,6 @@ function App() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "transparent",
           flexDirection: "column",
         }}
       >

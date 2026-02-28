@@ -5,7 +5,6 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import CaseHome from "./routes/caseRoute/CaseHome.tsx";
 import App from "./App.tsx";
-import CaseIndex from "./routes/casesRoute/CaseIndex.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,10 +13,6 @@ const router = createBrowserRouter([
   {
     path: "/cases/",
     element: <CaseHome />,
-  },
-  {
-    path: "/:slug/",
-    element: <CaseIndex />,
   },
 ]);
 

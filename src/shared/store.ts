@@ -6,7 +6,7 @@ interface CategoriesState {
 }
 
 export const useCategories = create<CategoriesState>((set) => ({
-  categorie: "Todos",
+  categorie: "digital_signage",
   setNewCategory: (newCategory: string) =>
     set(() => ({
       categorie: newCategory,

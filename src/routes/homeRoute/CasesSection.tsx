@@ -7,14 +7,15 @@ import { useCategories } from "../../shared/store";
 export default function CasesSection() {
   const categorie = useCategories((state) => (state.categorie))
 
-  const categoriesFiltered =
-    categorie === "Todos" 
-      ? casesMock 
-      : casesMock?.filter((caseItem) => caseItem.categoria === categorie);
+  const categoriesFiltered = casesMock.filter((caseItem) => caseItem.categoria === categorie);
 
   return (
     <>
-    <Box>
+    <Box
+        sx={{
+            width:"100%"
+        }}
+    >
       <CategorySwiper>
       </CategorySwiper>
     </Box>
@@ -23,9 +24,7 @@ export default function CasesSection() {
       maxWidth={false}
       sx={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
         width: "100%",
-        gridTemplateRows: "repeat(3, auto)",
         overflow: "hidden",
       }}
     >
@@ -34,7 +33,10 @@ export default function CasesSection() {
           key={caseItem.empresa}
           name={caseItem.empresa}
           image={caseItem.imagem}
-          route={caseItem.slug}
+          description_1={caseItem.description_1}
+          description_2={caseItem.description_2}
+          impactPhrase={caseItem.impactPhrase}
+          title={caseItem.title}
         />
       ))}
     </Container>

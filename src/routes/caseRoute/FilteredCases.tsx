@@ -95,7 +95,10 @@ function FilteredCases() {
             key={caseItem.empresa}
             name={caseItem.empresa}
             image={caseItem.imagem}
-            route={caseItem.slug}
+            impactPhrase={caseItem.impactPhrase}
+            description_1={caseItem.description_1}
+            description_2={caseItem.description_2}
+            title={caseItem.title}
           />
         ))}
       </Box>

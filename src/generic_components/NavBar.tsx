@@ -1,25 +1,25 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { NavLink } from "react-router-dom";
-import styled from "@emotion/styled";
+// import { NavLink } from "react-router-dom";
+// import styled from "@emotion/styled";
 import logo from "./assets/icons/Logo_fundo escuro.png";
 import logoSimbulo from "./assets/icons/Simbolo_fundo escuro.png";
 
-const ButtonNav = styled(NavLink)(() => ({
-    color: "white",
-    fontFamily: "poppins, sans-serif",
-    textDecoration: "none",
-    fontSize: "1rem",
-    transition: "all 0.3s ease-in-out",
-    padding: "8px 16px",
-    ":hover": {
-      color: "#98FF8E",
-    },
-    "&.active": {
-      color: "#98FF8E",
-      borderBottom: "2px solid #98FF8E",
-    },
-}));
+// const ButtonNav = styled(NavLink)(() => ({
+//    color: "white",
+//    fontFamily: "poppins, sans-serif",
+//    textDecoration: "none",
+//    fontSize: "1rem",
+//    transition: "all 0.3s ease-in-out",
+//    padding: "8px 16px",
+//    ":hover": {
+//      color: "#98FF8E",
+//    },
+//    "&.active": {
+//      color: "#98FF8E",
+//      borderBottom: "2px solid #98FF8E",
+//    },
+// }));
 
 function NavBar() {
   return (
@@ -30,13 +30,13 @@ function NavBar() {
           display: "flex",
           flexDirection: "row",
           width: "100%",
-          minHeight: "72px",
+          minHeight: "62px",
           alignItems: "center",
           justifyContent: "space-between",
           top: 0,
           left: 0,
           zIndex: 1300,
-          backgroundColor: "#1E1E1E",
+          backgroundColor: "#111111",
           padding: "0 24px",
           boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
         }}
@@ -45,7 +45,7 @@ function NavBar() {
           src={logo}
           alt="Logo"
           style={{
-            width: "12%",
+            width: "22%",
             objectFit: "contain",
           }}
         />
@@ -62,7 +62,6 @@ function NavBar() {
             gap: 3,
           }}
         >
-          <ButtonNav to={"/"}>Home</ButtonNav>
         </Box>
         <Box
           sx={{
@@ -71,7 +70,6 @@ function NavBar() {
             gap: 2,
             alignItems: "center",
             justifyContent: "center",
-            maxWidth: "20%",
           }}
         >
           <img
@@ -82,8 +80,8 @@ function NavBar() {
               objectFit: "contain",
             }}
           />
-          <Typography color="white" sx={{ fontSize: "0.9rem" }}>
-            +55 (11) 99999-9999
+          <Typography color="white" sx={{ fontSize: "1.2vmax" }}>
+            (11) 5535-0050
           </Typography>
         </Box>
       </Box>

@@ -22,7 +22,6 @@ export function CategorySwiper (){
     swiperRef.current?.slideNext();
   }, []);
   const categories = [
-    "Todos",
     ...new Set(casesMock.map((item) => item.categoria)),
   ];
 
