@@ -7,6 +7,7 @@ import { RouterProvider } from "react-router/dom";
 import CaseHome from "./routes/caseRoute/CaseHome.tsx";
 import App from "./App.tsx";
 import { theme } from "./theme/theme.ts";
+import ContactRoute from "./routes/contactRoute/ContactRoute.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/cases/",
     element: <CaseHome />,
+  },
+  {
+    path: "/contato",
+    element: <ContactRoute />,
   },
 ]);
 
