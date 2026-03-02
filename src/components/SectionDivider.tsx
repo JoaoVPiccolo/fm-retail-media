@@ -12,32 +12,36 @@ function SectionDivider({ title, dividerWidth = "25%" }: SectionDividerProps) {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        gap: 5,
+        gap: { xs: 2, sm: 3, md: 4, lg: 5 },
         width: "100%",
         justifyContent: "center",
+        px: { xs: 1, md: 2 },
       }}
     >
       <Divider
         sx={{
-          borderBottom: "2px solid #76A86F",
+          borderBottom: { xs: "2px solid #76A86F", md: "3px solid #76A86F" },
           width: dividerWidth,
+          flex: 1,
         }}
       />
       <Typography
+        variant="h3"
         sx={{
           color: "white",
-          fontSize: "2.5vmax",
-          fontWeight: "600",
+          fontWeight: 700,
           textAlign: "center",
-          fontFamily: "popper,sans-serif",
+          fontFamily: "'Montserrat', sans-serif",
+          whiteSpace: "nowrap",
         }}
       >
         {title}
       </Typography>
       <Divider
         sx={{
-          borderBottom: "2px solid #76A86F",
+          borderBottom: { xs: "2px solid #76A86F", md: "3px solid #76A86F" },
           width: dividerWidth,
+          flex: 1,
         }}
       />
     </Box>

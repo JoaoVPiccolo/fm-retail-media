@@ -21,32 +21,55 @@ const FeatureItem = ({ icon, value, description }: FeatureItemProps) => (
         alignItems: "center",
         textAlign: "center",
         height: "100%",
-        px: 2,
+        px: { xs: 1.5, sm: 2, md: 2.5 },
+        py: { xs: 2, md: 3 },
       }}
     >
-      <Box sx={{ color: "#7ADAA6", mb: 1, "& svg": { fontSize: { xs: "4rem", md: "5rem" } } }}>
+      <Box
+        sx={{
+          color: "#7ADAA6",
+          mb: { xs: 1.5, md: 2 },
+          "& svg": {
+            fontSize: {
+              xs: "clamp(3rem, 8vw, 4rem)",
+              md: "clamp(3.5rem, 5vw, 5rem)",
+            },
+          },
+        }}
+      >
         {icon}
       </Box>
-      <Typography sx={{ fontWeight: "bold", fontSize: "1rem", color: "white" }}>
+      <Typography
+        variant="h6"
+        sx={{
+          fontWeight: 600,
+          color: "white",
+          fontFamily: "'Poppins', sans-serif",
+        }}
+      >
         Até
       </Typography>
       <Typography
-        variant="h3"
+        component="h3"
         sx={{
-          fontWeight: "bold",
+          fontWeight: 700,
           color: "#7ADAA6",
-          fontSize: { xs: "3rem", md: "4rem" },
-          lineHeight: 1.2,
+          fontSize: {
+            xs: "clamp(2.25rem, 6vw, 3rem)",
+            md: "clamp(2.5rem, 5vw, 4rem)",
+          },
+          lineHeight: 1.1,
+          fontFamily: "'Montserrat', sans-serif",
         }}
       >
         {value}
       </Typography>
       <Typography
+        variant="body2"
         sx={{
-          fontSize: "1.1rem",
-          fontFamily: "Poppins, sans-serif",
+          fontFamily: "'Poppins', sans-serif",
           color: "white",
-          mt: 1,
+          mt: { xs: 1, md: 1.5 },
         }}
       >
         {description}
@@ -60,7 +83,8 @@ function WhyBuy() {
     <Container
       maxWidth={false}
       sx={{
-        py: { xs: 4, md: 8 },
+        py: { xs: 4, sm: 6, md: 8, lg: 10 },
+        px: { xs: 2, sm: 3, md: 4 },
         color: "white",
       }}
     >
@@ -70,27 +94,31 @@ function WhyBuy() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          mb: 6,
+          mb: { xs: 4, md: 6, lg: 8 },
+          gap: { xs: 2, md: 3 },
         }}
       >
         <Typography
-          variant="h4"
+          variant="h2"
           component="h2"
           sx={{
-            fontWeight: "bold",
-            fontSize: { xs: "1.8rem", md: "2.5rem" },
-            fontFamily: "Poppins, sans-serif",
+            fontWeight: 700,
+            fontFamily: "'Montserrat', sans-serif",
             textAlign: "center",
-            mb: 2,
           }}
         >
           Por que investir em Sinalização Digital?
         </Typography>
-        <Divider sx={{ borderBottom: "6px solid #76A86F", width: "80px" }} />
+        <Divider
+          sx={{
+            borderBottom: { xs: "4px solid #76A86F", md: "6px solid #76A86F" },
+            width: { xs: "60px", md: "80px" },
+          }}
+        />
       </Box>
 
       {/* Grid de Itens */}
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center">
         <FeatureItem
           icon={<PointOfSaleIcon />}
           value="60%"

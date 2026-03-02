@@ -32,16 +32,20 @@ function FilteredCases() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 3,
-        padding: "2rem",
+        gap: { xs: 2, md: 3, lg: 4 },
+        p: { xs: 2, sm: 3, md: 4 },
         color: "white",
         width: "100%",
       }}
     >
       {/* Header Section */}
       <Typography
-        variant="h4"
-        sx={{ fontWeight: "bold", fontFamily: "Poppins, sans-serif" }}
+        variant="h1"
+        sx={{
+          fontWeight: 700,
+          fontFamily: "'Montserrat', sans-serif",
+          mb: { xs: 1, md: 2 },
+        }}
       >
         Cases
       </Typography>
@@ -51,8 +55,9 @@ function FilteredCases() {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: 2,
+          gap: { xs: 1.5, sm: 2, md: 2.5 },
           justifyContent: "center",
+          mb: { xs: 2, md: 3 },
         }}
       >
         {categories.map((category) => (
@@ -62,16 +67,20 @@ function FilteredCases() {
             onClick={() => setSelectedCategory(category)}
             sx={{
               color: "white",
-              borderColor: "transparent",
-              borderRadius: "0px",
-              borderBottom: "1px solid white",
+              borderColor: "white",
+              borderRadius: "4px",
+              borderBottom: { xs: "2px solid white", md: "2px solid white" },
               backgroundColor:
                 selectedCategory === category ? "#76a86fa8" : "transparent",
-              fontWeight: "bold",
-              fontSize: ".9vmax",
+              fontWeight: 700,
+              fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
+              fontFamily: "'Montserrat', sans-serif",
               textTransform: "none",
+              padding: { xs: "0.5rem 1rem", md: "0.75rem 1.5rem" },
+              transition: "all 300ms ease-in-out",
               ":hover": {
                 backgroundColor: "#ffffff31",
+                borderColor: "#76A86F",
               },
             }}
           >
@@ -84,10 +93,14 @@ function FilteredCases() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: 3,
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+          },
+          gap: { xs: 2, sm: 3, md: 4 },
           width: "100%",
-          padding: "2rem",
+          p: { xs: 1, md: 2 },
         }}
       >
         {filteredCases.map((caseItem) => (

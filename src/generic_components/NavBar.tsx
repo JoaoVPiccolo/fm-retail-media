@@ -30,14 +30,14 @@ function NavBar() {
           display: "flex",
           flexDirection: "row",
           width: "100%",
-          minHeight: "62px",
+          minHeight: { xs: "56px", sm: "62px", md: "70px" },
           alignItems: "center",
           justifyContent: "space-between",
           top: 0,
           left: 0,
           zIndex: 1300,
           backgroundColor: "#111111",
-          padding: "0 24px",
+          padding: { xs: "0 16px", sm: "0 24px", md: "0 32px" },
           boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
         }}
       >
@@ -45,29 +45,29 @@ function NavBar() {
           src={logo}
           alt="Logo"
           style={{
-            width: "22%",
+            width: "clamp(120px, 20%, 220px)",
             objectFit: "contain",
+            height: "auto",
           }}
         />
         <Box
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             alignItems: "center",
             justifyContent: "space-around",
             flexDirection: "row",
             color: "white",
-            fontSize: "20px",
-            fontWeight: "bold",
+            fontSize: "clamp(1rem, 1.2vw, 1.25rem)",
+            fontWeight: 600,
             width: "60%",
-            gap: 3,
+            gap: { xs: 2, md: 3 },
           }}
-        >
-        </Box>
+        ></Box>
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
-            gap: 2,
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 1, sm: 2 },
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -76,11 +76,19 @@ function NavBar() {
             src={logoSimbulo}
             alt="Simbolo"
             style={{
-              width: "20%",
+              width: "clamp(40px, 8%, 80px)",
               objectFit: "contain",
+              height: "auto",
             }}
           />
-          <Typography color="white" sx={{ fontSize: "1.2vmax" }}>
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: "clamp(0.875rem, 1.2vw, 1.125rem)",
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 500,
+            }}
+          >
             (11) 5535-0050
           </Typography>
         </Box>

@@ -18,46 +18,48 @@ import { Link } from "react-router-dom";
 import type { ButtonProps } from "@mui/material";
 
 const LinkButton = styled(Button)<ButtonProps>(({ theme }) => ({
-    color: "white",
-    textAlign: "start",
-    display: "flex",
-    justifyContent: "start",
-    boxShadow: "none",
-    textTransform: "none",
-    fontSize: "1rem",
-    fontWeight: 300,
-    padding: 0,
-    minWidth: 0,
-    fontFamily: "Montserrat",
-    "&:hover": {
-      textDecoration: "underline",
-      color: theme.palette.primary.main,
-      backgroundColor: "transparent",
-    },
-  }));
+  color: "white",
+  textAlign: "start",
+  display: "flex",
+  justifyContent: "start",
+  boxShadow: "none",
+  textTransform: "none",
+  fontSize: "clamp(0.875rem, 1.2vw, 1.125rem)",
+  fontWeight: 400,
+  padding: 0,
+  minWidth: 0,
+  fontFamily: "'Montserrat', sans-serif",
+  transition: "all 300ms ease-in-out",
+  "&:hover": {
+    textDecoration: "underline",
+    color: theme.palette.primary.main,
+    backgroundColor: "transparent",
+  },
+}));
 
-  // Adicione o tipo ButtonProps para ajudar o TS
+// Adicione o tipo ButtonProps para ajudar o TS
 
-  const ButtonFooter = styled(Button)<ButtonProps>({
-    backgroundColor: "#75A535",
-    borderRadius: 5,
-    height: "2.8rem",
-    color: "white",
-    padding: "0.5rem 1rem",
-    fontFamily: "Montserrat",
-    textTransform: "none",
-    textAlign: "start" as const,
-    display: "flex",
-    justifyContent: "space-between",
-    transition: "350ms",
-    textDecoration: "none",
-    "&:hover": {
-      transform: "scale(1.05)",
-      backgroundColor: "#7FA57D",
-    },
-  });
+const ButtonFooter = styled(Button)<ButtonProps>(({ theme }) => ({
+  backgroundColor: "#75A535",
+  borderRadius: 5,
+  height: "clamp(2.25rem, 5vh, 2.8rem)",
+  color: "white",
+  padding: "0.5rem 1rem",
+  fontFamily: "'Montserrat', sans-serif",
+  textTransform: "none",
+  textAlign: "start" as const,
+  display: "flex",
+  justifyContent: "space-between",
+  fontSize: "clamp(0.875rem, 1.2vw, 1rem)",
+  fontWeight: 500,
+  transition: "350ms",
+  textDecoration: "none",
+  "&:hover": {
+    transform: "scale(1.05)",
+    backgroundColor: "#7FA57D",
+  },
+}));
 function Footer() {
-
   const handleWhatsAppClick = () => {
     window.open(
       "https://wa.me/5511911828983?text=Ol%C3%A1!%20Estava%20navegando%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.",
@@ -79,10 +81,11 @@ function Footer() {
       <Container
         maxWidth={false}
         sx={{
-          maxWidth: "88%",
+          maxWidth: { xs: "95%", sm: "92%", md: "88%", lg: "90%" },
           display: "flex",
           flexDirection: "column",
-          p: { xs: "2rem 1rem", sm: "3rem", md: "5rem" },
+          p: { xs: 2, sm: 3, md: 5, lg: 6 },
+          mx: "auto",
         }}
       >
         {/* Top Section */}
@@ -91,7 +94,7 @@ function Footer() {
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             justifyContent: "space-between",
-            gap: { xs: 6, md: 4 }, // Aumentei o gap no mobile para separar bem as seções
+            gap: { xs: 4, sm: 5, md: 4, lg: 6 },
           }}
         >
           {/* Contato & Orçamento */}
@@ -100,34 +103,35 @@ function Footer() {
               display: "flex",
               flexDirection: "column",
               alignItems: "start",
-              gap: 4,
-              flex: 1, // Ocupa o espaço disponível
+              gap: { xs: 3, md: 4 },
+              flex: 1,
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
+                gap: { xs: 1.5, md: 2 },
               }}
             >
               <Typography
+                variant="overline"
                 sx={{
-                  fontFamily: "Montserrat",
-                  fontWeight: 600,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
                   color: "#A2FFA8",
-                  fontSize: { xs: "1rem", md: "1.2rem" },
-                  letterSpacing: "1px",
+                  fontSize: "clamp(0.75rem, 1vw, 0.875rem)",
+                  letterSpacing: "0.1em",
                 }}
               >
                 NOS CONTATE
               </Typography>
               <Typography
+                component="h2"
                 sx={{
-                  fontFamily: "Montserrat",
-                  fontSize: { xs: "1.5rem", md: "2rem" },
-                  width: { xs: "100%", md: "100%" },
-                  fontWeight: 600,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: "clamp(1.25rem, 3vw, 2rem)",
+                  fontWeight: 700,
                   color: "white",
                   lineHeight: 1.2,
                 }}
@@ -140,7 +144,7 @@ function Footer() {
             <ButtonFooter
               onClick={handleWhatsAppClick}
               sx={{
-                minWidth: { xs: "18rem", sm: "18rem", md: "18rem" },
+                minWidth: { xs: "15rem", sm: "18rem", md: "18rem" },
                 color: "white",
               }}
             >
@@ -152,24 +156,25 @@ function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
-                mt: 2,
+                gap: { xs: 1.5, md: 2 },
+                mt: { xs: 1.5, md: 2 },
               }}
             >
               <Typography
+                variant="overline"
                 sx={{
-                  fontFamily: "Montserrat",
-                  fontWeight: 600,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
                   color: "#A2FFA8",
-                  fontSize: { xs: "1rem", md: "1.2rem" },
-                  letterSpacing: "1px",
+                  fontSize: "clamp(0.75rem, 1vw, 0.875rem)",
+                  letterSpacing: "0.1em",
                 }}
               >
                 NOS MANDE UM EMAIL
               </Typography>
               <ButtonFooter
                 sx={{
-                  minWidth: { xs: "18rem", sm: "18rem", md: "18rem" },
+                  minWidth: { xs: "15rem", sm: "18rem", md: "18rem" },
                   color: "white",
                 }}
                 onClick={handleEmail}
@@ -185,10 +190,10 @@ function Footer() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row", // Garante que fiquem lado a lado
-              justifyContent: "flex-start", // Alinha ao início para evitar buracos
-              alignItems: "flex-start", // Garante alinhamento no topo
-              gap: { xs: 5, md: 10 }, // Espaçamento fixo entre as colunas Links e Infos
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              gap: { xs: 4, sm: 5, md: 8, lg: 10 },
               mt: { xs: 2, md: 0 },
             }}
           >
@@ -197,21 +202,28 @@ function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
+                gap: { xs: 1.5, md: 2 },
               }}
             >
               <Typography
+                variant="overline"
                 sx={{
-                  fontFamily: "Montserrat",
-                  fontWeight: 600,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
                   color: "#A2FFA8",
-                  fontSize: { xs: "1rem", md: "1.2rem" },
-                  letterSpacing: "1px",
+                  fontSize: "clamp(0.75rem, 1vw, 0.875rem)",
+                  letterSpacing: "0.1em",
                 }}
               >
                 LINKS
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: { xs: 0.75, md: 1 },
+                }}
+              >
                 <Link
                   to="/"
                   style={{ textDecoration: "none" }}
@@ -228,21 +240,28 @@ function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
+                gap: { xs: 1.5, md: 2 },
               }}
             >
               <Typography
+                variant="overline"
                 sx={{
-                  fontFamily: "Montserrat",
-                  fontWeight: 600,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
                   color: "#A2FFA8",
-                  fontSize: { xs: "1rem", md: "1.2rem" },
-                  letterSpacing: "1px",
+                  fontSize: "clamp(0.75rem, 1vw, 0.875rem)",
+                  letterSpacing: "0.1em",
                 }}
               >
                 INFOS
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: { xs: 0.75, md: 1 },
+                }}
+              >
                 <LinkButton>Termos de Uso</LinkButton>
                 <LinkButton>Política de Privacidade</LinkButton>
                 <LinkButton>Cookies</LinkButton>
@@ -254,7 +273,7 @@ function Footer() {
         {/* Divider */}
         <Box
           width="100%"
-          my={5}
+          my={{ xs: 3, md: 5 }}
           sx={{
             display: "flex",
             flexDirection: "row",
@@ -262,7 +281,7 @@ function Footer() {
             alignItems: "center",
           }}
         >
-          <Divider sx={{ width: "100%", borderColor: "white"}} />
+          <Divider sx={{ width: "100%", borderColor: "white" }} />
         </Box>
 
         {/* Bottom Section */}
@@ -272,11 +291,15 @@ function Footer() {
           flexDirection={{ xs: "column-reverse", md: "row" }}
           justifyContent="space-between"
           alignItems="center"
-          gap={2}
+          gap={{ xs: 2, md: 3 }}
         >
           <Typography
-            fontFamily={"Montserrat"}
-            sx={{ color: "white", fontSize: "0.9rem" }}
+            variant="caption"
+            sx={{
+              color: "white",
+              fontSize: "clamp(0.75rem, 1vw, 0.875rem)",
+              fontFamily: "'Montserrat', sans-serif",
+            }}
           >
             Copyright © 2025 Flexmedia
           </Typography>

@@ -20,6 +20,8 @@ function App() {
         disableGutters
         sx={{
           height: "100vh",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
         <Box
@@ -36,7 +38,7 @@ function App() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            zIndex: -1,
+            zIndex: 1,
           }}
         ></Box>
         <Box
@@ -50,68 +52,82 @@ function App() {
             height: "100%",
             color: "white",
             textAlign: "center",
-            px: 3,
+            px: { xs: 2, sm: 3, md: 4 },
           }}
         >
-          <Typography>
+          <Typography component="div">
             <h1
               style={{
-                fontSize: "4vmax",
-                fontWeight: "bold",
-                textTransform: " uppercase",
+                fontSize: "clamp(2rem, 5vw, 4rem)",
+                fontWeight: 700,
+                textTransform: "uppercase",
                 color: "white",
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
               }}
             >
-            <TextType 
-              text={["Sinalização Digital", "Para voce, para nós", "Seja feliz"]}
-              typingSpeed={75}
-              pauseDuration={2000}
-              showCursor
-              cursorCharacter="●"
-              deletingSpeed={50}
-              cursorBlinkDuration={0.5}
-            />          
+              <TextType
+                text={[
+                  "Sinalização Digital",
+                  "Para voce, para nós",
+                  "Seja feliz",
+                ]}
+                typingSpeed={75}
+                pauseDuration={2000}
+                showCursor
+                cursorCharacter="●"
+                deletingSpeed={50}
+                cursorBlinkDuration={0.5}
+              />
             </h1>
           </Typography>
-          <Typography
+          <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
-              gap: 3,
+              flexDirection: { xs: "column", sm: "row" },
+              gap: { xs: 2, sm: 3, md: 4 },
+              mt: { xs: 2, md: 3 },
+              justifyContent: "center",
+              flexWrap: "wrap",
             }}
           >
-            <h2
-              style={{
-                fontSize: "2vmax",
-                fontWeight: "bold",
+            <Typography
+              component="h2"
+              sx={{
+                fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                fontWeight: 700,
                 color: "#A2FFA8",
+                fontFamily: "'Montserrat', sans-serif",
               }}
             >
               Do varejo
-            </h2>
-            <h2
-              style={{
-                fontSize: "2vmax",
-                fontWeight: "bold",
+            </Typography>
+            <Typography
+              component="h2"
+              sx={{
+                fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                fontWeight: 700,
                 color: "#A2FFA8",
+                fontFamily: "'Montserrat', sans-serif",
               }}
             >
               Ao Corporativo
-            </h2>
-          </Typography>
+            </Typography>
+          </Box>
         </Box>
       </Container>
       <Container
         disableGutters
         maxWidth={false}
         sx={{
-          minHeight: {xs:"10vh", md: "20vh"},
+          minHeight: { xs: "auto", md: "20vh" },
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: "2rem",
-          gap: 2,
+          py: { xs: 4, md: 8 },
+          px: { xs: 2, sm: 3, md: 4 },
+          gap: { xs: 2, md: 3 },
         }}
       >
         <Box
@@ -121,20 +137,24 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             width: "100%",
-            gap: 3,
+            gap: { xs: 2, md: 3 },
           }}
         >
           <Typography
+            variant="h2"
             sx={{
               color: "white",
-              fontSize: "3vmax",
-              fontWeight: "700",
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
-          Nossos Segmentos
-            
+            Nossos Segmentos
           </Typography>
-          <Divider sx={{ borderBottom: "2px solid #76A86F", width: "60%" }} />
+          <Divider
+            sx={{
+              borderBottom: "4px solid #76A86F",
+              width: { xs: "80px", md: "120px" },
+            }}
+          />
         </Box>
       </Container>
       <Container
@@ -153,8 +173,8 @@ function App() {
         disableGutters
         maxWidth={false}
         sx={{
-          paddingTop: "2.6rem",
-          minHeight: "10vh",
+          pt: { xs: 3, md: 4 },
+          minHeight: "auto",
           width: "100%",
           overflow: "hidden",
         }}
@@ -170,33 +190,37 @@ function App() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            gap: 2,
-            padding: "2vmax",
+            gap: { xs: 2, md: 3 },
+            py: { xs: 4, md: 6 },
+            px: { xs: 2, md: 4 },
             color: "white",
             textAlign: "center",
           }}
         >
           <Typography
+            variant="h3"
             sx={{
-              fontSize: "2vmax",
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
             Mais de 120 grandes clientes
           </Typography>
           <Typography
+            variant="h3"
             sx={{
-              fontSize: "2vmax",
               color: "#88c280ff",
               fontWeight: "bold",
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
             Mais de 700 cidades atendidas
           </Typography>
           <Typography
+            variant="h3"
             sx={{
-              fontSize: "2vmax",
               color: "#76a86f",
               fontWeight: "bold",
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
             Mais de 13 milhões de pessoas impactadas diariamente

@@ -1,4 +1,4 @@
-import { Box, Container, Typography,} from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 interface CaseProps {
   name: string;
@@ -9,21 +9,28 @@ interface CaseProps {
   description_2: string;
 }
 
-function SwiperComponent({name, image, impactPhrase, title, description_1, description_2}: CaseProps) {
+function SwiperComponent({
+  name,
+  image,
+  impactPhrase,
+  title,
+  description_1,
+  description_2,
+}: CaseProps) {
   return (
     <Container
       maxWidth={false}
       sx={{
         display: "flex",
         flexDirection: { xs: "column", lg: "row" },
-        maxWidth:"80%",
-        gap: { xs: 4, md: 8 },
+        maxWidth: { xs: "95%", sm: "90%", md: "85%", lg: "80%" },
+        gap: { xs: 3, sm: 4, md: 6, lg: 8 },
         alignItems: "center",
         justifyContent: "center",
-        minHeight: { md: "500px" },
-        paddingBottom: { xs: "3rem", md: "0px" },
-        paddingTop: { xs: "2rem", md: "60px" },
-        mb: { xs: 0, md: 5 },
+        minHeight: { xs: "auto", md: "500px" },
+        py: { xs: 3, sm: 4, md: 8 },
+        mb: { xs: 2, md: 5 },
+        mx: "auto",
       }}
     >
       <Box
@@ -32,8 +39,9 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: { xs: "250px", md: "500px" },
+          height: { xs: "250px", sm: "350px", md: "500px" },
           width: "100%",
+          minWidth: 0,
         }}
       >
         <Box
@@ -44,8 +52,8 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
             height: "100%",
             objectFit: "contain",
             borderRadius: "8px",
-            maxWidth: { xs: "90%", md: "80%", lg: "100%" },
-            width: "auto", // Garante que a proporção se mantenha
+            maxWidth: { xs: "90%", md: "90%", lg: "100%" },
+            width: "auto",
           }}
         />
       </Box>
@@ -65,17 +73,17 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
             md: "none",
             xs: `4px solid #51724C`,
           },
-          paddingLeft: { md: "3rem", xs: "0" },
-          paddingBottom: { xs: "1.5rem", md: "0" },
-          gap: 2,
+          pl: { md: 4, xs: 0 },
+          pb: { xs: 3, md: 0 },
+          gap: { xs: 2, md: 3 },
         }}
       >
         <Typography
+          variant="h2"
           sx={{
-            fontWeight: "bold",
-            fontFamily: "montserrat",
+            fontWeight: 700,
+            fontFamily: "'Montserrat', sans-serif",
             textAlign: { md: "left", xs: "center" },
-            fontSize: { xs: "1.8rem", md: "2.4rem" },
             color: "white",
           }}
         >
@@ -83,22 +91,22 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
         </Typography>
 
         <Typography
+          variant="subtitle1"
           sx={{
-            fontFamily: "montserrat",
+            fontFamily: "'Montserrat', sans-serif",
             textAlign: { md: "left", xs: "center" },
-            fontSize: { xs: "1rem", md: "1.4rem" },
             color: "#80ad79",
-            fontWeight: "500",
+            fontWeight: 500,
           }}
         >
           {impactPhrase}
         </Typography>
 
         <Typography
+          variant="body1"
           sx={{
-            fontFamily: "inter",
+            fontFamily: "'Inter', sans-serif",
             textAlign: { md: "left", xs: "justify" },
-            fontSize: { xs: "1rem", md: "1.4rem" },
             color: "white",
             lineHeight: 1.6,
           }}
@@ -107,10 +115,10 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
         </Typography>
 
         <Typography
+          variant="body1"
           sx={{
-            fontFamily: "inter",
+            fontFamily: "'Inter', sans-serif",
             textAlign: { md: "left", xs: "justify" },
-            fontSize: { xs: "1rem", md: "1.4rem" },
             color: "white",
             lineHeight: 1.6,
           }}

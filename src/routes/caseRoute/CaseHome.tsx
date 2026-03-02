@@ -9,7 +9,7 @@ function CaseHome() {
         disableGutters
         maxWidth={false}
         sx={{
-          marginTop: "12vh",
+          mt: { xs: "56px", sm: "62px", md: "70px" },
         }}
       >
         <FilteredCases />
