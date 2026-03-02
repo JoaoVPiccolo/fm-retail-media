@@ -22,7 +22,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
         justifyContent: "center",
         minHeight: { md: "500px" },
         paddingBottom: { xs: "3rem", md: "0px" },
-        paddingTop: { xs: "2rem", md: "0px" },
+        paddingTop: { xs: "2rem", md: "60px" },
         mb: { xs: 0, md: 5 },
       }}
     >
@@ -44,7 +44,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
             height: "100%",
             objectFit: "contain",
             borderRadius: "8px",
-            maxWidth: { xs: "65%", md: "100%" },
+            maxWidth: { xs: "90%", md: "80%", lg: "100%" },
             width: "auto", // Garante que a proporção se mantenha
           }}
         />
@@ -75,7 +75,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
             fontWeight: "bold",
             fontFamily: "montserrat",
             textAlign: { md: "left", xs: "center" },
-            fontSize: { xs: "1.8rem", md: "2rem" },
+            fontSize: { xs: "1.8rem", md: "2.4rem" },
             color: "white",
           }}
         >
@@ -86,7 +86,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           sx={{
             fontFamily: "montserrat",
             textAlign: { md: "left", xs: "center" },
-            fontSize: { xs: "1rem", md: "1rem" },
+            fontSize: { xs: "1rem", md: "1.4rem" },
             color: "#80ad79",
             fontWeight: "500",
           }}
@@ -98,7 +98,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           sx={{
             fontFamily: "inter",
             textAlign: { md: "left", xs: "justify" },
-            fontSize: { xs: "1rem", md: "1rem" },
+            fontSize: { xs: "1rem", md: "1.4rem" },
             color: "white",
             lineHeight: 1.6,
           }}
@@ -110,7 +110,7 @@ function SwiperComponent({name, image, impactPhrase, title, description_1, descr
           sx={{
             fontFamily: "inter",
             textAlign: { md: "left", xs: "justify" },
-            fontSize: { xs: "1rem", md: "1rem" },
+            fontSize: { xs: "1rem", md: "1.4rem" },
             color: "white",
             lineHeight: 1.6,
           }}

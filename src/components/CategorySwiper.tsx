@@ -8,9 +8,11 @@ import {IconButton} from '@mui/material';
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useRef, useCallback} from 'react';
 import "swiper/css"
+import {useTheme, useMediaQuery} from '@mui/material';
 
 export function CategorySwiper (){
-
+  const theme = useTheme()
+  const isXs = useMediaQuery(theme.breakpoints.only("xs"))
   const swiperRef = useRef<SwiperType | null>(null);
   const categorie =   useCategories((state) => state.categorie)
   const setNewCategory = useCategories((state) => state.setNewCategory);
@@ -34,7 +36,13 @@ export function CategorySwiper (){
     producao_de_video: "Produção de Vídeo",
   };
     return(
-        <Container>
+        <Container
+        disableGutters
+        maxWidth={false}
+        sx={{
+                maxWidth:"68%"
+            }}
+        >
             <Box
                 sx={{
                     display:"flex",
@@ -58,12 +66,13 @@ export function CategorySwiper (){
                 <Swiper
                     modules={[Navigation]}
                     slidesPerView={3}
+                    direction={isXs ? "vertical" : "horizontal"}
                     loop={false}
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
                     style={{ 
                     justifyContent: "center",
                     alignItems: "center",
-                    padding: "24px 0", width: "100%", display: "flex", flexDirection:"row"}}
+                    padding: "24px 0", width: "100%", display: "flex", flexDirection:"column"}}
                     navigation={{
                         nextEl: ".swiper-button-next-custom",
                         prevEl: ".swiper-button-prev-custom",
@@ -73,9 +82,11 @@ export function CategorySwiper (){
                         <SwiperSlide key={i}
                             style={{
                                 display: "flex",
-                                flexDirection: "row", 
+                                flexDirection: "column", 
                                 justifyContent: "center",
                                 alignItems: "center",
+                                marginBottom:"10px",
+                                marginRight: "10px"
                             }}
                         >
                             <Button
@@ -84,14 +95,15 @@ export function CategorySwiper (){
                                 onClick={() => setNewCategory(category)}
                                 sx={{
                                 minWidth: "70%",
+                                minHeight: {xs: "60px", md: "0px"},
                                 color: "white",
                                 borderColor: "transparent",
                                 borderRadius: "4px",
                                 border: "1px solid white",
                                 backgroundColor:
-                                    categorie == category ? "#76a86fa8" : "transparent",
+                                categorie == category ? "#76a86fa8" : "transparent",
                                 fontWeight: "bold",
-                                fontSize: ".9vmax",
+                                fontSize: {xs: ".8rem", md: "1.4rem"},
                                 textTransform: "none",
                                 ":hover": {
                                     backgroundColor: "#ffffff31",

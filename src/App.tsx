@@ -9,6 +9,7 @@ import { Divider } from "@mui/material";
 import CasesSection from "./routes/homeRoute/CasesSection";
 import WhyBuy from "./routes/homeRoute/WhyBuy";
 import LetsTalk from "./routes/homeRoute/LetsTalk";
+import TextType from "./generic_components/reactBits/TextType/TextType";
 
 function App() {
   return (
@@ -61,7 +62,15 @@ function App() {
                 color: "white",
               }}
             >
-              Sinalização Digital
+            <TextType 
+              text={["Sinalização Digital", "Para voce, para nós", "Seja feliz"]}
+              typingSpeed={75}
+              pauseDuration={2000}
+              showCursor
+              cursorCharacter="●"
+              deletingSpeed={50}
+              cursorBlinkDuration={0.5}
+            />          
             </h1>
           </Typography>
           <Typography
@@ -96,7 +105,7 @@ function App() {
         disableGutters
         maxWidth={false}
         sx={{
-          minHeight: "20vh",
+          minHeight: {xs:"10vh", md: "20vh"},
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
