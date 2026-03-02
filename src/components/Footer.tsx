@@ -39,7 +39,7 @@ const LinkButton = styled(Button)<ButtonProps>(({ theme }) => ({
 
 // Adicione o tipo ButtonProps para ajudar o TS
 
-const ButtonFooter = styled(Button)<ButtonProps>(({ theme }) => ({
+const ButtonFooter = styled(Button)<ButtonProps>({
   backgroundColor: "#75A535",
   borderRadius: 5,
   height: "clamp(2.25rem, 5vh, 2.8rem)",
@@ -58,7 +58,7 @@ const ButtonFooter = styled(Button)<ButtonProps>(({ theme }) => ({
     transform: "scale(1.05)",
     backgroundColor: "#7FA57D",
   },
-}));
+});
 function Footer() {
   const handleWhatsAppClick = () => {
     window.open(

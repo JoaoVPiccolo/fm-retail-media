@@ -1,6 +1,12 @@
 import { Container, Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    hbspt: any;
+  }
+}
+
 function LetsTalk() {
   useEffect(() => {
     // Reinicia o HubSpot form quando o componente monta
@@ -12,12 +18,6 @@ function LetsTalk() {
       });
     }
   }, []);
-
-  declare global {
-    interface Window {
-      hbspt: any;
-    }
-  }
 
   return (
     <Container
@@ -74,8 +74,8 @@ function LetsTalk() {
       {/* Form and Contact Section */}
       <Box
         sx={{
-          background:'white',
           width: "100%",
+          backgroundColor:"white",
           maxWidth: { xs: "100%", sm: "500px", md: "600px" },
           "& .hs-form": {
             color: "white",
@@ -143,10 +143,10 @@ function LetsTalk() {
           },
         }}
       >
-        <div 
-          className="hs-form-frame" 
-          data-region="na1" 
-          data-form-id="4072a956-e5c1-46ff-87fa-04467ad369ff" 
+        <div
+          className="hs-form-frame"
+          data-region="na1"
+          data-form-id="4072a956-e5c1-46ff-87fa-04467ad369ff"
           data-portal-id="43643994"
         ></div>
       </Box>
