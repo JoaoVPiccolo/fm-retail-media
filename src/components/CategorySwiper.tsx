@@ -25,6 +25,7 @@ export function CategorySwiper() {
   const categoryDictionary = {
     Todos: "Todos",
     digital_signage: "Sinalização Digital",
+    varejo_e_atacarejo: "Varejo & Atacarejo",
     comunicacao_corporativa: "Comunicação Corporativa",
     gestao_de_conteudo: "Gestão de Conteúdo",
     inovacao: "Inovação",
