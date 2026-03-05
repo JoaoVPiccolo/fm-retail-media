@@ -98,7 +98,7 @@ function NavBar() {
           >
             <Button
               variant="contained"
-              href="https://flexmedia-site-homolog.flexmart.com.br/"
+              href="https://flexmedia.com.br"
               target="_blank"
               endIcon={<ArrowOutwardIcon />}
               sx={{
@@ -179,7 +179,7 @@ function NavBar() {
             <Button
               fullWidth
               variant="contained"
-              href="https://flexmedia-site-homolog.flexmart.com.br/"
+              href="https://flexmedia.com.br"
               target="_blank"
               sx={{ backgroundColor: "#76A86F" }}
             >
