@@ -1,5 +1,5 @@
 import { Container, Box, Typography } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 declare global {
   interface Window {
@@ -8,16 +8,246 @@ declare global {
 }
 
 function LetsTalk() {
-  useEffect(() => {
-    // Reinicia o HubSpot form quando o componente monta
-    if (window.hbspt) {
-      window.hbspt.forms.create({
-        region: "na1",
-        portalId: "43643994",
-        formId: "4072a956-e5c1-46ff-87fa-04467ad369ff",
-      });
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  const hasScrolledRef = useRef(false);
+
+  /**
+   * Scroll to the top of the page.
+   * Uses multiple strategies for maximum compatibility.
+   */
+  const scrollToTop = useCallback(() => {
+    if (hasScrolledRef.current) {
+      console.log(
+        "[LetsTalk] scrollToTop: already scrolled, skipping duplicate",
+      );
+      return;
     }
+    hasScrolledRef.current = true;
+    console.log("[LetsTalk] scrollToTop: executing scroll to top");
+
+    // Strategy 1: window.scrollTo with smooth behavior
+    try {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      console.log("[LetsTalk] scrollToTop: window.scrollTo executed");
+    } catch (e) {
+      console.warn("[LetsTalk] scrollToTop: window.scrollTo failed", e);
+    }
+
+    // Strategy 2: document.documentElement.scrollTop as fallback
+    try {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      console.log("[LetsTalk] scrollToTop: scrollTop fallback executed");
+    } catch (e) {
+      console.warn("[LetsTalk] scrollToTop: scrollTop fallback failed", e);
+    }
+
+    // Reset the guard after a delay so future submissions can also scroll
+    setTimeout(() => {
+      hasScrolledRef.current = false;
+      console.log("[LetsTalk] scrollToTop: reset scroll guard");
+    }, 3000);
   }, []);
+
+  useEffect(() => {
+    console.log(
+      "[LetsTalk] Component mounted, setting up HubSpot form listeners",
+    );
+
+    /**
+     * APPROACH 1: Listen for HubSpot postMessage events.
+     * HubSpot iframes send cross-origin messages to the parent window
+     * with type "hsFormCallback" and eventName "onFormSubmitted" / "onFormSubmit".
+     * This is the most reliable way to detect form submission in a cross-origin iframe.
+     */
+    const handleMessage = (event: MessageEvent) => {
+      // HubSpot messages can come as JSON strings or objects
+      let data = event.data;
+
+      // Log ALL messages from HubSpot-related origins for debugging
+      const isHubSpotOrigin =
+        typeof event.origin === "string" &&
+        (event.origin.includes("hubspot") ||
+          event.origin.includes("hsforms") ||
+          event.origin.includes("hs-scripts"));
+
+      if (typeof data === "string") {
+        // Log HubSpot-origin string messages before parsing
+        if (isHubSpotOrigin) {
+          console.log(
+            "[LetsTalk] HubSpot string message from",
+            event.origin,
+            ":",
+            data.substring(0, 200),
+          );
+        }
+        try {
+          data = JSON.parse(data);
+        } catch {
+          // Not JSON — but could still be a HubSpot signal
+          if (isHubSpotOrigin) {
+            console.log("[LetsTalk] Non-JSON HubSpot message:", data);
+          }
+          return;
+        }
+      }
+
+      // Only log messages that have meaningful data (skip noise from Vite HMR etc.)
+      if (data?.type || data?.eventName || isHubSpotOrigin) {
+        console.log("[LetsTalk] postMessage received:", {
+          type: data?.type,
+          eventName: data?.eventName,
+          origin: event.origin,
+          data: data,
+        });
+      }
+
+      // HubSpot form callback events (type: "hsFormCallback")
+      if (data?.type === "hsFormCallback") {
+        console.log(
+          "[LetsTalk] HubSpot form callback detected:",
+          data.eventName,
+        );
+
+        if (
+          data.eventName === "onFormSubmitted" ||
+          data.eventName === "onFormSubmit"
+        ) {
+          console.log(
+            "[LetsTalk] Form submitted via postMessage (hsFormCallback)! Scrolling to top...",
+          );
+          alert("✅ Funcionou! Formulário enviado com sucesso!");
+          scrollToTop();
+        }
+      }
+
+      // Alternative: some HubSpot versions use "hsFormCallback" as eventName directly
+      if (
+        data?.eventName === "onFormSubmitted" ||
+        data?.eventName === "onFormSubmit"
+      ) {
+        console.log(
+          "[LetsTalk] Form submitted via postMessage (eventName match)! Scrolling to top...",
+        );
+        alert("✅ Funcionou! Formulário enviado com sucesso!");
+        scrollToTop();
+      }
+
+      // Alternative: detect via HubSpot form redirect or submission data patterns
+      if (
+        isHubSpotOrigin &&
+        (data?.type === "form-submit" ||
+          data?.action === "submission" ||
+          data?.submissionId ||
+          data?.redirectUrl)
+      ) {
+        console.log(
+          "[LetsTalk] Form submitted via postMessage (HubSpot origin pattern)! Scrolling to top...",
+          data,
+        );
+        alert("✅ Funcionou! Formulário enviado com sucesso!");
+        scrollToTop();
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    console.log("[LetsTalk] postMessage listener registered");
+
+    /**
+     * APPROACH 2: MutationObserver as a fallback.
+     * Watch the form container for DOM changes that indicate a submission
+     * (e.g., the form being replaced by a thank-you message).
+     */
+    let observer: MutationObserver | null = null;
+    const setupMutationObserver = () => {
+      const container = formContainerRef.current;
+      if (!container) {
+        console.log(
+          "[LetsTalk] MutationObserver: container not found, retrying...",
+        );
+        setTimeout(setupMutationObserver, 1000);
+        return;
+      }
+
+      observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          // Check for added nodes that might be a thank-you message
+          mutation.addedNodes.forEach((node) => {
+            if (node instanceof HTMLElement) {
+              const text = node.textContent?.toLowerCase() || "";
+              const className = node.className?.toLowerCase?.() || "";
+              const innerHTML = node.innerHTML?.toLowerCase() || "";
+
+              console.log("[LetsTalk] MutationObserver: node added:", {
+                tag: node.tagName,
+                className: node.className,
+                textPreview: text.substring(0, 80),
+              });
+
+              const hasThankYou =
+                text.includes("thank") ||
+                text.includes("obrigado") ||
+                text.includes("obrigada") ||
+                text.includes("submitted") ||
+                text.includes("enviado") ||
+                text.includes("sucesso") ||
+                className.includes("submitted") ||
+                className.includes("success") ||
+                className.includes("thank-you") ||
+                innerHTML.includes("submitted-message") ||
+                innerHTML.includes("thank-you");
+
+              if (hasThankYou) {
+                console.log(
+                  "[LetsTalk] MutationObserver: detected thank-you/submission message in DOM:",
+                  text.substring(0, 100),
+                );
+                alert("✅ Funcionou! Formulário enviado com sucesso!");
+                scrollToTop();
+              }
+            }
+          });
+
+          // Also check attribute changes on iframes (src changes on submission)
+          if (
+            mutation.type === "attributes" &&
+            mutation.target instanceof HTMLIFrameElement
+          ) {
+            const iframe = mutation.target;
+            console.log(
+              "[LetsTalk] MutationObserver: iframe attribute changed:",
+              {
+                attributeName: mutation.attributeName,
+                src: iframe.src?.substring(0, 100),
+              },
+            );
+          }
+        }
+      });
+
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ["src", "class", "style"],
+      });
+      console.log("[LetsTalk] MutationObserver registered on form container");
+    };
+
+    setupMutationObserver();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      if (observer) {
+        observer.disconnect();
+      }
+      console.log(
+        "[LetsTalk] Cleanup: removed message listener and MutationObserver",
+      );
+    };
+  }, [scrollToTop]);
 
   return (
     <Container
@@ -75,7 +305,7 @@ function LetsTalk() {
       <Box
         sx={{
           width: "100%",
-          backgroundColor:"white",
+          backgroundColor: "white",
           maxWidth: { xs: "100%", sm: "500px", md: "600px" },
           "& .hs-form": {
             color: "white",
@@ -144,6 +374,8 @@ function LetsTalk() {
         }}
       >
         <div
+          id="hs-form-container"
+          ref={formContainerRef}
           className="hs-form-frame"
           data-region="na1"
           data-form-id="4072a956-e5c1-46ff-87fa-04467ad369ff"

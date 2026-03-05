@@ -15,6 +15,50 @@ function ContactRoute() {
     };
   }, []);
 
+  // Detecta submissão do formulário HubSpot com MutationObserver
+  useEffect(() => {
+    let observer: MutationObserver | null = null;
+    let checkInterval: ReturnType<typeof setInterval> | null = null;
+
+    const setupObserver = () => {
+      const formContainer = document
+        .querySelector(".hs-form-frame")
+        ?.closest("div");
+      if (!formContainer) return;
+
+      observer = new MutationObserver(() => {
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 500);
+      });
+
+      observer.observe(formContainer, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+      });
+    };
+
+    // Tenta configurar o observer após HubSpot carregar
+    checkInterval = setInterval(() => {
+      if (document.querySelector(".hs-form-frame")) {
+        setupObserver();
+        if (checkInterval) clearInterval(checkInterval);
+      }
+    }, 500);
+
+    // Timeout de segurança
+    setTimeout(() => {
+      if (checkInterval) clearInterval(checkInterval);
+      if (!observer) setupObserver();
+    }, 5000);
+
+    return () => {
+      if (observer) observer.disconnect();
+      if (checkInterval) clearInterval(checkInterval);
+    };
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -37,7 +81,7 @@ function ContactRoute() {
             flexDirection: "column",
             alignItems: "center",
             gap: 3,
-            paddingTop: { xs: "25%", sm: "15%", md: "10%", lg: "5%" },
+            paddingTop: { xs: "25%", sm: "15%", md: "10%", lg: "0%" },
             paddingBottom: { xs: "10%", md: "8%" },
           }}
         >

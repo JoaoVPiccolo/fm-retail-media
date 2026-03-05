@@ -69,11 +69,12 @@ function App() {
               <TextType
                 text={[
                   "Sinalização Digital",
-                  "Para voce, para nós",
-                  "Seja feliz",
+                  "Transforme olhares em compras.",
+                  "Sua loja mais moderna em 24h.",
+                  "A oferta certa, no momento certo.",
                 ]}
                 typingSpeed={75}
-                pauseDuration={2000}
+                pauseDuration={1500}
                 showCursor
                 cursorCharacter="●"
                 deletingSpeed={50}

@@ -14,8 +14,8 @@ import {
   Email, // Alterado de ContentCopy para Email para condizer com a função mailto
   ArrowForward,
 } from "@mui/icons-material";
-import { Link } from "react-router-dom";
 import type { ButtonProps } from "@mui/material";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LinkButton = styled(Button)<ButtonProps>(({ theme }) => ({
   color: "white",
@@ -30,6 +30,8 @@ const LinkButton = styled(Button)<ButtonProps>(({ theme }) => ({
   minWidth: 0,
   fontFamily: "'Montserrat', sans-serif",
   transition: "all 300ms ease-in-out",
+  cursor: "pointer",
+  pointerEvents: "auto",
   "&:hover": {
     textDecoration: "underline",
     color: theme.palette.primary.main,
@@ -60,6 +62,9 @@ const ButtonFooter = styled(Button)<ButtonProps>({
   },
 });
 function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleWhatsAppClick = () => {
     window.open(
       "https://wa.me/5511911828983?text=Ol%C3%A1!%20Estava%20navegando%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.",
@@ -70,6 +75,27 @@ function Footer() {
   const handleEmail = () => {
     window.location.href =
       "mailto:vendas@flexmedia.com.br?subject=Olá&body=Gostaria%20de%20saber%20mais%20sobre...";
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
+  const handleHomeClick = () => {
+    if (location.pathname === "/") {
+      // Already on home, just scroll to top
+      scrollToTop();
+    } else {
+      // Navigate to home, ScrollToTop component handles the scroll
+      navigate("/");
+    }
+  };
+
+  const handleContatoClick = () => {
+    // Navigate to contato, ScrollToTop component handles the scroll
+    navigate("/contato");
   };
 
   return (
@@ -224,14 +250,8 @@ function Footer() {
                   gap: { xs: 0.75, md: 1 },
                 }}
               >
-                <Link
-                  to="/"
-                  style={{ textDecoration: "none" }}
-                  onClick={() => window.scrollTo(0, 0)}
-                >
-                  <LinkButton>Home</LinkButton>
-                </Link>
-                {/* Blog removido */}
+                <LinkButton onClick={handleHomeClick}>Home</LinkButton>
+                <LinkButton onClick={handleContatoClick}>Contato</LinkButton>
               </Box>
             </Box>
 
