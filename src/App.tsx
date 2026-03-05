@@ -204,7 +204,7 @@ function App() {
               fontFamily: "'Montserrat', sans-serif",
             }}
           >
-            Mais de 120 grandes clientes
+            Mais de 5000 clientes atendidas
           </Typography>
           <Typography
             variant="h3"
@@ -214,7 +214,7 @@ function App() {
               fontFamily: "'Montserrat', sans-serif",
             }}
           >
-            Mais de 700 cidades atendidas
+            Projetos feitos sob medida
           </Typography>
           <Typography
             variant="h3"
@@ -224,7 +224,7 @@ function App() {
               fontFamily: "'Montserrat', sans-serif",
             }}
           >
-            Mais de 13 milhões de pessoas impactadas diariamente
+            Estamos presentes em todos os 26 estados Brasileiros
           </Typography>
         </Box>
       </Container>

@@ -1,18 +1,17 @@
-import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import CloudSyncOutlinedIcon from "@mui/icons-material/CloudSyncOutlined";
+import CurrencyExchangeOutlinedIcon from "@mui/icons-material/CurrencyExchangeOutlined";
 import { Container, Divider, Box, Typography, Grid } from "@mui/material";
 
-// Tipagem simples para os itens
+// Tipagem para os itens
 interface FeatureItemProps {
   icon: React.ReactNode;
-  value: string;
+  title: string;
   description: string;
 }
 
-const FeatureItem = ({ icon, value, description }: FeatureItemProps) => (
-  // Updated to use the MUI v6 compatible 'size' prop instead of 'item'
+const FeatureItem = ({ icon, title, description }: FeatureItemProps) => (
   <Grid size={{ xs: 12, sm: 6, md: 3 }}>
     <Box
       sx={{
@@ -27,7 +26,7 @@ const FeatureItem = ({ icon, value, description }: FeatureItemProps) => (
     >
       <Box
         sx={{
-          color: "#7ADAA6",
+          color: "#70E0A3",
           mb: { xs: 1.5, md: 2 },
           "& svg": {
             fontSize: {
@@ -40,36 +39,28 @@ const FeatureItem = ({ icon, value, description }: FeatureItemProps) => (
         {icon}
       </Box>
       <Typography
-        variant="h6"
-        sx={{
-          fontWeight: 600,
-          color: "white",
-          fontFamily: "'Poppins', sans-serif",
-        }}
-      >
-        Até
-      </Typography>
-      <Typography
         component="h3"
         sx={{
           fontWeight: 700,
-          color: "#7ADAA6",
+          color: "#70E0A3",
           fontSize: {
-            xs: "clamp(2.25rem, 6vw, 3rem)",
-            md: "clamp(2.5rem, 5vw, 4rem)",
+            xs: "clamp(1.25rem, 4vw, 1.5rem)",
+            md: "clamp(1.5rem, 2.5vw, 1.75rem)",
           },
-          lineHeight: 1.1,
+          lineHeight: 1.2,
           fontFamily: "'Montserrat', sans-serif",
+          mb: { xs: 1, md: 1.5 },
         }}
       >
-        {value}
+        {title}
       </Typography>
       <Typography
         variant="body2"
         sx={{
           fontFamily: "'Poppins', sans-serif",
-          color: "white",
-          mt: { xs: 1, md: 1.5 },
+          color: "rgba(255, 255, 255, 0.85)",
+          lineHeight: 1.6,
+          maxWidth: "280px",
         }}
       >
         {description}
@@ -111,33 +102,33 @@ function WhyBuy() {
         </Typography>
         <Divider
           sx={{
-            borderBottom: { xs: "4px solid #76A86F", md: "6px solid #76A86F" },
+            borderBottom: { xs: "4px solid #70E0A3", md: "6px solid #70E0A3" },
             width: { xs: "60px", md: "80px" },
           }}
         />
       </Box>
 
-      {/* Grid de Itens */}
+      {/* Grid de 4 colunas */}
       <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center">
         <FeatureItem
-          icon={<PointOfSaleIcon />}
-          value="60%"
-          description="mais retenção de conteúdo"
+          icon={<AutoAwesomeOutlinedIcon />}
+          title="Experiência Moderna"
+          description="Crie ambientes atrativos com vídeos e animações que reforçam a identidade da sua marca."
         />
         <FeatureItem
-          icon={<EmojiEventsIcon />}
-          value="46%"
-          description="mais satisfação do consumidor"
+          icon={<ShoppingCartOutlinedIcon />}
+          title="Impulso nas Vendas"
+          description="Destaque produtos estrategicamente e aumente as compras por impulso no ponto de venda."
         />
         <FeatureItem
-          icon={<RemoveRedEyeIcon />}
-          value="400%"
-          description="mais views que displays estáticos"
+          icon={<CloudSyncOutlinedIcon />}
+          title="Gestão Centralizada"
+          description="Controle todas as telas em tempo real e agende campanhas sazonais com apenas alguns cliques."
         />
         <FeatureItem
-          icon={<CurrencyExchangeIcon />}
-          value="50%"
-          description="redução de custos de impressão"
+          icon={<CurrencyExchangeOutlinedIcon />}
+          title="Eficiência e Economia"
+          description="Elimine custos com impressões e logística, atualizando promoções instantaneamente em todas as lojas."
         />
       </Grid>
     </Container>
